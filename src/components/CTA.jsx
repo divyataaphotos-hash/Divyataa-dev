@@ -1,314 +1,190 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
-const PartyBurst = ({ className = "", flip = false, delay = 0 }) => {
-  const particles = [
-  { x: 130, y: -90 },
-  { x: 155, y: -55 },
-  { x: 180, y: -20 },
-  { x: 175, y: 25 },
-  { x: 145, y: 75 },
-  { x: 210, y: -70 },
-  { x: 225, y: 45 },
-  { x: 245, y: 0 },
-  { x: 190, y: -110 },
-  { x: 195, y: 95 },
-  { x: 160, y: -125 },
-  { x: 160, y: 115 },
-];
+// 🚀 Generate 6 rockets ONLY in safe (outside) areas
+const getSafePosition = () => {
+  const zone = Math.floor(Math.random() * 4);
 
-  const dir = flip ? -1 : 1;
-
-  return (
-    <div
-      className={`absolute pointer-events-none ${className}`}
-      style={{
-        width: 0,
-        height: 0,
-      }}
-    >
-      {/* Party Popper Cone */}
-      <motion.div
-        className="absolute"
-        style={{
-          width: 0,
-          height: 0,
-          borderTop: "16px solid transparent",
-          borderBottom: "16px solid transparent",
-          borderLeft: flip
-            ? "none"
-            : "34px solid rgb(109 40 217)",
-          borderRight: flip
-            ? "34px solid rgb(109 40 217)"
-            : "none",
-        }}
-        animate={{
-          rotate: flip ? [15, 8, 15] : [-15, -8, -15],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Confetti */}
-      {particles.map((p, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-sm"
-          style={{
-            width: i % 3 === 0 ? 10 : 6,
-            height: i % 2 === 0 ? 5 : 12,
-            background:
-              i % 4 === 0
-                ? "#6d28d9"
-                : i % 3 === 0
-                ? "#8b5cf6"
-                : "#d8b4fe",
-            left: 8,
-            top: 0,
-            boxShadow: "0 0 8px rgba(139,92,246,0.25)",
-          }}
-          initial={{
-            x: 0,
-            y: 0,
-            opacity: 0,
-            scale: 0.3,
-            rotate: 0,
-          }}
-          animate={{
-            x: [0, dir * p.x],
-            y: [0, p.y],
-            opacity: [0, 1, 1, 0],
-            scale: [0.3, 1, 1, 0.8],
-            rotate: [0, 180, 540],
-          }}
-          transition={{
-            duration: 1.3,
-            delay: delay + i * 0.03,
-            repeat: Infinity,
-            repeatDelay: 3.8,
-            ease: "easeOut",
-          }}
-        />
-      ))}
-
-      {/* Sparkles */}
-      {[0, 1, 2, 3].map((n) => (
-        <motion.div
-          key={n}
-          className="absolute rounded-full bg-violet-300"
-          style={{
-            width: 4,
-            height: 4,
-            left: 5,
-            top: 0,
-          }}
-          animate={{
-            x: [0, dir * (70 + n * 18)],
-            y: [0, -25 + n * 18],
-            opacity: [0, 1, 0],
-            scale: [0, 1.5, 0],
-          }}
-          transition={{
-            duration: 1,
-            delay: delay + n * 0.08,
-            repeat: Infinity,
-            repeatDelay: 4.1,
-            ease: "easeOut",
-          }}
-        />
-      ))}
-    </div>
-  );
+  switch (zone) {
+    case 0: // TOP
+      return {
+        top: `${Math.random() * 10}%`,
+        left: `${Math.random() * 100}%`,
+      };
+    case 1: // BOTTOM
+      return {
+        top: `${75 + Math.random() * 25}%`,
+        left: `${Math.random() * 100}%`,
+      };
+    case 2: // LEFT
+      return {
+        top: `${10 + Math.random() * 65}%`,
+        left: `${Math.random() * 15}%`,
+      };
+    case 3: // RIGHT
+      return {
+        top: `${10 + Math.random() * 65}%`,
+        left: `${85 + Math.random() * 15}%`,
+      };
+    default:
+      return { top: "0%", left: "0%" };
+  }
 };
+
+const rockets = Array.from({ length: 6 }, (_, i) => {
+  const pos = getSafePosition();
+
+  return {
+    id: i,
+    ...pos,
+    delay: Math.random() * 4,
+    size: 20 + Math.random() * 20,
+    duration: 6 + Math.random() * 4,
+    opacity: 0.4 + Math.random() * 0.4,
+  };
+});
 
 const CTA = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-transparent px-1 py-0.1 md:py-0.1">
-      <div className="relative z-10 mx-auto max-w-4xl space-y-8 text-center">
-        {/* Ambient Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute left-8 top-10 h-40 w-40 rounded-full bg-purple-300/15 blur-3xl" />
-          <div className="absolute right-8 top-20 h-52 w-52 rounded-full bg-pink-300/15 blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 h-44 w-44 rounded-full bg-cyan-300/15 blur-3xl" />
-          <div className="absolute bottom-4 right-1/4 h-56 w-56 rounded-full bg-indigo-300/15 blur-3xl" />
-        </div>
+    <section className="relative w-full py-16 md:py-20 px-5 overflow-hidden bg-transparent">
 
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="relative py-24"
-        >
-          {/* Animated Party Poppers */}
+      {/* ✅ SVG MASK */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none">
+        <defs>
+          <mask id="cta-mask">
+            <rect width="100%" height="100%" fill="white" />
 
-          <PartyBurst
-            className="hidden lg:block left-[-120px] top-1/2 -translate-y-1/2"
-          />
+            {/* ❌ Hide center content */}
+            <rect
+              x="15%"
+              y="10%"
+              width="70%"
+              height="460"
+              rx="40"
+              fill="black"
+            />
+          </mask>
+        </defs>
+      </svg>
 
-          <PartyBurst
-            className="hidden lg:block right-[-120px] top-1/2 -translate-y-1/2"
-            flip={true}
-            delay={0.4}
-          />
-
-          {/* Main Content */}
+      {/* 🚀 ROCKETS BACKGROUND */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none blur-[2px]"
+        style={{
+          mask: "url(#cta-mask)",
+          WebkitMask: "url(#cta-mask)",
+        }}
+      >
+        {rockets.map((rocket) => (
           <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: true }}
-            className="relative z-10 mx-auto max-w-2xl space-y-6"
+            key={rocket.id}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{
+              x: [0, 40, -20, 0],
+              y: [40, -80, 20],
+              rotate: [0, 10, -8, 0],
+              opacity: [0, rocket.opacity, rocket.opacity, 0],
+            }}
+            transition={{
+              duration: rocket.duration,
+              repeat: Infinity,
+              delay: rocket.delay,
+              ease: "easeInOut",
+            }}
+            className="absolute"
+            style={{
+              top: rocket.top,
+              left: rocket.left,
+            }}
           >
-            <motion.span
-              animate={{
-                opacity: [1, 0.9, 1],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-              }}
-              className="inline-block rounded-full bg-gradient-to-r from-purple-700 to-violet-600 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-xl"
+            <svg
+              width={rocket.size}
+              height={rocket.size}
+              viewBox="0 0 24 24"
+              fill="none"
+              className="drop-shadow-md"
             >
-              2025–26 Admissions Open
-            </motion.span>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-[#1a1a1a] md:text-6xl lg:text-7xl"
-            >
-              Come and see it for yourself.
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.35 }}
-              className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg"
-            >
-              The best way to understand Divyataa is to visit on a
-              working morning and watch the children learning,
-              exploring, creating, and growing with confidence.
-            </motion.p>
+              <path
+                d="M2 21l21-9L2 3l4 9-4 9z"
+                fill="#9333ea"
+              />
+            </svg>
           </motion.div>
-        </motion.div>
+        ))}
+      </div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
+      {/* 🔥 CONTENT */}
+      <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6 sm:space-y-8 md:space-y-10">
+
+        {/* Badge */}
+        <motion.span
+          initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row md:gap-6"
+         className="inline-block px-2 py-2 mb-2 md:mb-2 rounded-full bg-purple-50 text-purple-600 font-bold tracking-widest text-[10px] md:text-xs uppercase shadow-md border border-purple-100/50"
+          >
+          2025–26 Admissions Open
+        </motion.span>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-2xl py-2 md:text-6xl lg:text-7xl font-gayathri text-[#1a1a1a] leading-tight font-bold"
+        >
+          Come and see it for yourself.
+        </motion.h2>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-slate-600 text-gayathri md:text-base leading-relaxed max-w-2xl mx-auto"
+        >
+          The best way to understand Divyataa is to visit on a working morning and watch the children.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
         >
           <Link
             to="/contact"
-            className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-purple-700 to-violet-600 px-10 py-5 text-base font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-purple-400/40 sm:w-auto"
+            className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-full bg-[#7208b3] px-10 py-5 text-base font-bold text-white shadow-lg transition-all hover:bg-[#8a1fd0] hover:scale-105"
           >
-            Visit Our Campus
-            <ArrowRight size={20} />
+            Visit Our Campus <ArrowRight size={20} />
           </Link>
 
           <Link
             to="/contact"
-            className="flex w-full items-center justify-center gap-3 rounded-full border border-slate-200 bg-white/80 px-10 py-5 text-base font-bold text-[#1a1a1a] shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white sm:w-auto"
+            className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-full border border-slate-200 bg-white px-10 py-5 text-base font-bold text-[#1a1a1a] shadow-sm transition-all hover:bg-slate-50 hover:scale-105"
           >
             Schedule a Meeting
           </Link>
         </motion.div>
 
         {/* Contact */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-          <span className="text-sm text-slate-900 md:text-base">
-            Or call us directly:
-          </span>
+        <p className="text-slate-900 text-xs md:text-sm pt-2">
+          Or call us directly:{' '}
+          <a href="tel:9751112300" className="hover:text-[#7208b3]">
+            +91 97511 12300
+          </a>{' '}
+          &{' '}
+          <a href="tel:8428412300" className="hover:text-[#7208b3]">
+            +91 84284 12300
+          </a>
+        </p>
 
-         <motion.a
-  href="tel:9751112300"
-  initial={{
-    opacity: 0,
-    y: 30,
-    scale: 0.6,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-    scale: [0.6, 1.15, 1],
-  }}
-  transition={{
-    duration: 0.8,
-    delay: 0.5,
-    ease: "easeOut",
-  }}
-  viewport={{ once: true }}
-  whileHover={{
-    scale: 1.08,
-  }}
-  animate={{
-  textShadow: [
-    "0 0 0px rgba(147,51,234,0)",
-    "0 0 14px rgba(147,51,234,0.35)",
-    "0 0 0px rgba(147,51,234,0)",
-  ],
-}}
-transition={{
-  duration: 2,
-  delay: 1.2,
-  repeat: Infinity,
-  repeatDelay: 4,
-}}
-  className="text-lg font-bold text-purple-700 transition-colors hover:text-purple-900 md:text-xl"
->
-  +91 97511 12300
-</motion.a>
-
-<span className="text-slate-900">-</span>
-
-<motion.a
-  href="tel:8428412300"
-  initial={{
-    opacity: 0,
-    y: 30,
-    scale: 0.6,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-    scale: [0.6, 1.15, 1],
-  }}
-  transition={{
-    duration: 0.8,
-    delay: 0.8,
-    ease: "easeOut",
-  }}
-  viewport={{ once: true }}
-  whileHover={{
-    scale: 1.08,
-  }}
-  animate={{
-  textShadow: [
-    "0 0 0px rgba(147,51,234,0)",
-    "0 0 14px rgba(147,51,234,0.35)",
-    "0 0 0px rgba(147,51,234,0)",
-  ],
-}}
-transition={{
-  duration: 2,
-  delay: 1.2,
-  repeat: Infinity,
-  repeatDelay: 4,
-}}
-  className="text-lg font-bold text-purple-700 transition-colors hover:text-purple-900 md:text-xl"
->
-  +91 84284 12300
-</motion.a>
-        </div>
       </div>
     </section>
   );
