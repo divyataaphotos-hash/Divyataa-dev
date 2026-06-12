@@ -1,9 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
-import annualImg from '../Website/Gallery Page/Annual Day/5C7A9162.JPG';
-import annualImg1 from '../Website/Gallery Page/Annual Day/5C7A9168.JPG';
 import campusImg from '../Website/Gallery Page/Campus/8f8e94c0-49a5-4fed-bdb4-d25b3a92bc38 (1).jpg';
+import annualImg from '../Website/Gallery Page/Annual Day/5C7A9162.JPG';
 import classImg1 from '../Website/Gallery Page/Classsroom Life/018A8914.JPG';
 import eventImg1 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg';
 import fieldImg from '../assets/fieldtrip1.jpg';
@@ -12,9 +10,8 @@ import eventImg from '../assets/image (13).png';
 
 const ImageSection = () => {
   const images = [
-    annualImg,
-    annualImg1,
     campusImg,
+    annualImg,
     classImg1,
     eventImg1,
     fieldImg,
