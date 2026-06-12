@@ -25,6 +25,7 @@ import eventImg from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG';
 import annualImg from '../Website/Gallery Page/Annual Day/5C7A9603.JPG';
 import fieldImg from '../Website/Gallery Page/Field trip/0bf8d5c7-90c3-4e15-ad3c-96ed14e14a71.jpg';
 import extcurImg from '../Website/Gallery Page/Extracurricular/image (1).png';
+import readyImg from '../Website/Gallery Page/Extracurricular/image (5).png';
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
@@ -281,131 +282,64 @@ const Experience = () => {
   </div>
 </div>
 
-     {/* Final CTA / Get in touch */}
-<section className="py-4 px-6 bg-slate-50">
-  <div className="max-w-4xl mx-auto">
+     {/* Final CTA */}
+<section className="relative py-28 px-6 bg-slate-50 overflow-hidden">
 
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-      className="relative rounded-[3rem] overflow-hidden p-[2px]"
+   {/* Background Image */}
+<div className="absolute inset-0">
+  <img
+    src={readyImg}
+    alt=""
+    className="w-full h-full object-cover"
+  />
+
+  {/* Dark Overlay (main control) */}
+  <div className="absolute inset-0 bg-black/50" />
+
+  {/* Soft gradient for depth */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/50" />
+</div>
+
+   <motion.div
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="relative z-10 max-w-4xl mx-auto text-center text-white"
+>
+    <span className="text-purple-150 uppercase tracking-[0.3em] text-s font-bold">
+      Visit Divyataa
+    </span>
+
+<h2 className="mt-6 text-3xl md:text-5xl font-normal font-bold text-white leading-tight">  Ready to see it{" "}
+ <span className="text-purple-200 font-semibold md:font-bold">
+  in person?
+</span>
+</h2>
+
+<div className="flex items-center justify-center gap-4 my-8">
+  <div className="w-16 h-px bg-purple-200" />
+  <div className="w-2 h-2 rounded-full bg-purple-200" />
+  <div className="w-16 h-px bg-purple-200" />
+</div>
+    <p className="max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-white text-slate-600">
+      The best way to understand Divyataa is to spend a morning
+      with us, watching children learn, explore, create and
+      grow with confidence.
+    </p>
+
+    <Link
+      to="/contact"
+      className="group inline-flex items-center gap-3 mt-12 text-purple-200 font-bold text-lg transition-all"
     >
+      Schedule a Visit
 
-      {/* Animated Border */}
-      <motion.div
-        className="absolute inset-0 rounded-[3rem]"
-        style={{
-          background:
-            "linear-gradient(90deg,#a855f7,#ec4899,#fdba74,#86efac,#60a5fa,#a855f7)",
-          backgroundSize: "300% 300%",
-        }}
-        animate={{
-          backgroundPosition: [
-            "0% 50%",
-            "100% 50%",
-            "0% 50%",
-          ],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+      <ArrowRight
+        size={22}
+        className="transition-transform duration-300 group-hover:translate-x-2"
       />
-
-      {/* Main Card */}
-      <div className="relative bg-white rounded-[calc(3rem-2px)] overflow-hidden">
-
-        {/* Background Glows */}
-        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-purple-300/20 blur-3xl" />
-
-        <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-pink-300/20 blur-3xl" />
-
-        {/* Floating Petals */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-          {[...Array(16)].map((_, i) => {
-            const colors = [
-              "#c084fc",
-              "#f9a8d4",
-              "#fdba74",
-              "#fde68a",
-              "#86efac",
-              "#93c5fd",
-            ];
-
-            return (
-              <motion.div
-                key={i}
-                className="absolute"
-                style={{
-                  left: i < 8
-                    ? `${5 + i * 2}%`
-                    : `${79 + (i - 8) * 2}%`,
-                  top: "-40px",
-                }}
-                animate={{
-                  y: [0, 700],
-                  x: [0, 20, -15, 15, 0],
-                  rotate: [0, 120, 240, 360],
-                  opacity: [0, 0.85, 0.85, 0],
-                }}
-                transition={{
-                  duration: 10 + (i % 4),
-                  delay: i * 0.4,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              >
-                <div
-                  style={{
-                    width: "12px",
-                    height: "18px",
-                    background:
-                      colors[i % colors.length],
-                    borderRadius:
-                      "70% 30% 70% 30%",
-                    transform: `rotate(${i * 35}deg)`,
-                    boxShadow:
-                      "0 2px 6px rgba(0,0,0,0.08)",
-                    opacity: 0.75,
-                  }}
-                />
-              </motion.div>
-            );
-          })}
-
-        </div>
-
-        {/* Content */}
-<div className="relative z-10 px-2 md:px-4 py-8 md:py-12 text-center">
-
-          <h2 className="text-2xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
-            Ready to see it in person?
-          </h2>
-
-          <p className="max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-slate-600 mb-10">
-            The best way to understand Divyataa is to spend a morning
-            with us, watching children learn, explore, create and
-            grow with confidence.
-          </p>
-
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-purple-700 to-violet-600 px-10 py-5 text-base font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-purple-500/30"
-          >
-            Schedule a Visit
-            <ArrowRight size={20} />
-          </Link>
-
-        </div>
-
-      </div>
-
-    </motion.div>
-  </div>
+    </Link>
+  </motion.div>
 </section>
 
       <Footer />

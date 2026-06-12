@@ -355,6 +355,7 @@ className="
       </section>
 
 
+
 <section className="relative py-16 md:py-6 px-6 overflow-hidden">
   {/* Animated Lavender Background */}
 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -388,8 +389,8 @@ className="
       h-[700px]
       rounded-full
       bg-gradient-to-r
-      from-purple-300/40
-      to-violet-200/10
+      from-purple-400/40
+      to-violet-300/10
       blur-[140px]
     "
   />
@@ -424,8 +425,8 @@ className="
       h-[700px]
       rounded-full
       bg-gradient-to-l
-      from-purple-300/40
-      to-violet-200/10
+      from-purple-400/40
+      to-violet-300/10
       blur-[140px]
     "
   />
@@ -454,56 +455,52 @@ className="
       w-[450px]
       h-[450px]
       rounded-full
-      bg-purple-200/40
+      bg-purple-400/40
       blur-[120px]
     "
   />
 
 </div>
-<div className="relative z-10 max-w-7xl mx-auto">    
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<div className="max-w-6xl mx-auto relative z-10">
 
-      {/* Left Content */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-center lg:text-left"
-      >
-        <span className="text-6xl md:text-8xl font-gayathri text-purple-300 block mb-6">
-          "
-        </span>
+  <div className="flex flex-col md:flex-row items-center gap-0">
 
-        <blockquote className="text-xl md:text-3xl font-gayathri text-black leading-tight mb-10">
-          The greatest sign of success for a teacher is to be able to say:
-          the children are now working as if I did not exist.
-        </blockquote>
+    {/* LEFT IMAGE */}
+    <div className="flex-1 flex justify-center translate-x-10">
+  <img
+    src={yourImage}
+    alt="Maria Montessori"
+    className="w-40 h-40 md:w-45 md:h-45 object-contain shadow-xl border-4 border-purple-900 rounded-full"
+  />
+</div>
 
-        <cite className="text-black font-medium tracking-widest uppercase text-sm not-italic">
-          — Maria Montessori
-        </cite>
-      </motion.div>
+    {/* RIGHT TEXT */}
+    <div className="flex-1 text-left -ml-38">
+      <span className="text-5xl md:text-8xl text-purple-200 block mb-2 leading-none">
+        "
+      </span>
 
-      {/* Right Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="flex justify-center"
-      >
-        <div className="overflow-hidden rounded-[2rem] shadow-2xl border border-white/10">
-          <img
-            src={yourImage}
-            alt="Maria Montessori"
-            className="w-full max-w-[500px] h-auto object-cover"
-          />
-        </div>
-      </motion.div>
+      <blockquote className="md:text-xl text-slate-800 leading-snug">
+        The greatest sign of success for a teacher is to be able to say:
+        the children are now working as if I did not exist.
+      </blockquote>
 
+      <cite className="text-slate-500 font-medium tracking-widest uppercase text-sm block mt-4">
+        — Maria Montessori
+      </cite>
     </div>
+
   </div>
+</div>
+
+  {/* Background dots */}
+  <div
+    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style={{
+      backgroundImage: 'radial-gradient(#7208b3 1px, transparent 1px)',
+      backgroundSize: '32px 32px'
+    }}
+  />
 </section>
 
       <Footer />

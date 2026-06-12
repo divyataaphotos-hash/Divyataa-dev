@@ -189,7 +189,7 @@ const Curriculum = () => {
                 className="p-8 bg-white/5 rounded-3xl border border-white/10"
               >
                 <h4 className="text-xl font-bold mb-4 text-white">{item.title}</h4>
-                <p className="text-slate-400 leading-relaxed text-sm text-justify">{item.content}</p>
+                <p className="text-lg text-slate-300 leading-relaxed text-justify">{item.content}</p>
               </motion.div>
             ))}
           </div>
@@ -254,7 +254,7 @@ const Curriculum = () => {
                 className="p-10 bg-slate-50 rounded-[2rem] border border-slate-100 hover:shadow-lg transition-shadow"
               >
                 <h4 className="text-lg font-bold text-slate-900 mb-4">{item.title}</h4>
-                <p className="text-slate-500 leading-relaxed text-sm text-justify">{item.content}</p>
+                <p className="text-lg text-slate-600 leading-relaxed text-justify">{item.content}</p>
               </motion.div>
             ))}
           </div>
@@ -303,8 +303,9 @@ const Curriculum = () => {
                 <h4 className="text-purple-600 font-bold uppercase text-xs tracking-widest mb-6">{group.category}</h4>
                 <ul className="space-y-4">
                   {group.items.map((item, j) => (
-                    <li key={j} className="text-slate-900 font-medium flex items-center gap-3">
-                      <div className="w-1 h-1 rounded-full bg-slate-300" />
+                    <li key={j} className="text-slate-900 font-medium flex items-start gap-4">
+
+                      <div className="w-2.5 h-2.5 rounded-full bg-purple-600 shrink-0 mt-1.5" />
                       {item}
                     </li>
                   ))}
