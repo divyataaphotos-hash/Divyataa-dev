@@ -7,49 +7,41 @@ const testimonials = [
     content: "Divyataa follows a good Montessori approach with hands-on learning activities. The environment is peaceful and helps children focus and develop important life skills. My daughter enjoys learning here and is becoming more confident every day.",
     author: "Prakash",
     sub: "Parent of P.V. Iniyazh (Stage 3)",
-    occupation: "Software Engineer"
   },
   {
     content: "Over the past four years, we have seen many positive changes in our child — not only in academics but also in confidence and communication. The teachers are very caring and give individual attention to each child. My child enjoys going to school every day, which makes me very happy.",
     author: "S. Revathi",
     sub: "Parent of S. Nikithran (Grade 2)",
-    occupation: "Homemaker"
   },
   {
     content: "The first and foremost thing about Divyataa is the transparency between school and parent. As a parent, we are very free to share our needs about our children and the management takes initiative. Divyataa cares deeply for our child's future — your curriculum makes our kids think and act.",
     author: "Yuganya Rajmohan",
     sub: "Parent of R. Rakshith Abinav (Stage 1)",
-    occupation: "Advocate"
   },
   {
     content: "It's a great platform for my child's education. The teachers have a wonderful bond with the children.",
     author: "Selvakumar",
     sub: "Parent of S.Y. Aadhiran (Grade 1)",
-    occupation: "Bank Manager"
   },
   {
     content: "The atmosphere at this school is wonderful. The staff is warm and nurturing, making it a safe place where students feel comfortable and excited to learn. They treat every student as an individual, understanding their unique needs and abilities.",
     author: "Ankita Tiwari",
     sub: "Parent of Ishan Tiwari (Stage 3)",
-    occupation: "Professor"
   },
   {
     content: "The school has such a pleasant environment. The teachers are very friendly, which makes my child feel comfortable and happy. I truly feel at ease knowing my child is cared for so well and feels safe, just like being at home.",
     author: "Jenifer Antony",
     sub: "Parent of Anton Steve (Stage 3)",
-    occupation: "Charted Accountant"
   },
   {
     content: "Divyataa's curriculum encourages students to be independent, gives them the opportunity to learn from their errors, and provides an uninterrupted learning environment. My child's ability to reason and carry herself with confidence is where I believe Divyataa has played a vital role.",
     author: "Narmadha",
     sub: "Parent of Ilanila (Grade 2)",
-    occupation: "HR Manager"
   },
   {
     content: "One of my twins found difficulties in learning while the other could follow immediately. The teachers gave her time to understand and grow with no pressure. Now both my kids are confidently learning. In Divyataa, each student learns independently at their own pace, without being judged or compared. That's why the students of Divyataa wear confidence on their shoulders.",
     author: "Narmadha",
     sub: "Parent of Innila (Grade 2)",
-    occupation: "HR Manager"
   }
 ];
 
@@ -148,11 +140,6 @@ const Testimonials = () => {
     {testimonial.author}
   </h4>
 
-  {testimonial.occupation && (
-    <p className="text-slate-500 text-sm italic mt-1">
-      {testimonial.occupation}
-    </p>
-  )}
 
   <p className="text-[#7208b3] font-medium text-xs md:text-sm uppercase tracking-wider mt-2">
     {testimonial.sub}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Phone, ArrowRight, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logo from '../assets/divyataa-logo.png';
+import logo from '../assets/TM.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -143,9 +143,9 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-xl font-serif py-1.5 w-full text-center transition-colors ${
-                    isActive ? 'text-purple-600 font-bold' : 'text-slate-600'
-                  }`}
+                  className={`text-xl font-medium py-1.5 w-full text-center transition-colors ${
+  isActive ? 'text-purple-600 font-bold' : 'text-slate-600'
+}`}
                 >
                   {link.name}
                 </Link>
@@ -156,7 +156,7 @@ const Navbar = () => {
             
             <a href="tel:9751112300" className="flex items-center gap-3 text-slate-800 font-bold text-base py-2">
               <Phone className="text-purple-600" size={18} />
-              <span>97511 12300</span>
+              <span>+91 97511 12300</span>
             </a>
 
             <Link to="/contact" className="flex items-center justify-center gap-3 w-full max-w-[280px] rounded-full bg-purple-600 px-6 py-3.5 text-base font-bold text-white shadow-xl mt-2">

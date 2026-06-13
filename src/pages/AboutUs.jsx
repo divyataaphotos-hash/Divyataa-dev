@@ -6,7 +6,7 @@ import schoolImg from '../assets/school.webp';
 import studyImg from '../assets/study.JPG';
 import schoolLogo from '../assets/logo.webp';
 import mottoOverlay from '../assets/fieldtrip2.jpg';
-import yourImage from '../assets/mariamontessori.webp';
+import yourImage from '../assets/Montessori-Pedagogy.jpeg';
 import founderImg from '../assets/founder.jpg';
 import coFounderImg from '../assets/co-founder.jpg';
 
@@ -21,7 +21,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen selection:bg-purple-100">
+    <div className="bg-white min-h-screen selection:bg-purple-200 selection:text-slate-900">
       <Navbar />
 
       {/* ─── Hero Section ─── */}
@@ -35,7 +35,7 @@ const AboutUs = () => {
   />
 </div>
   <div className="absolute inset-0 bg-black/50" />
-  
+ 
   <div className="max-w-7xl mx-auto text-center relative z-10">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
@@ -85,7 +85,7 @@ const AboutUs = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
-            
+           
             {/* ── Chairman's Legacy Card ── */}
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -105,7 +105,7 @@ const AboutUs = () => {
                     <p className="text-purple-600 font-bold text-sm uppercase tracking-widest">Chairman and Founder</p>
                   </div>
                 </div>
-                
+               
                 <div className="mb-8 pb-8 border-b border-slate-200">
                   <p className="text-slate-800 font-medium gayathri leading-relaxed text-sm md:text-base">
                     First-generation school founder carrying a century-long family legacy of educational philanthropy. Education as a gift to the community.
@@ -355,7 +355,6 @@ className="
       </section>
 
 
-
 <section className="relative py-16 md:py-6 px-6 overflow-hidden">
   {/* Animated Lavender Background */}
 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -389,8 +388,8 @@ className="
       h-[700px]
       rounded-full
       bg-gradient-to-r
-      from-purple-400/40
-      to-violet-300/10
+      from-purple-300/40
+      to-violet-200/10
       blur-[140px]
     "
   />
@@ -425,8 +424,8 @@ className="
       h-[700px]
       rounded-full
       bg-gradient-to-l
-      from-purple-400/40
-      to-violet-300/10
+      from-purple-300/40
+      to-violet-200/10
       blur-[140px]
     "
   />
@@ -455,39 +454,40 @@ className="
       w-[450px]
       h-[450px]
       rounded-full
-      bg-purple-400/40
+      bg-purple-200/40
       blur-[120px]
     "
   />
 
 </div>
-<div className="max-w-6xl mx-auto relative z-10">
-
-  <div className="flex flex-col md:flex-row items-center gap-0">
+<div className="max-w-6xl mx-auto relative z-10 px-4">
+<div className="flex flex-col md:flex-row items-center justify-center text-center gap-6">
 
     {/* LEFT IMAGE */}
-    <div className="flex-1 flex justify-center translate-x-10">
-  <img
-    src={yourImage}
-    alt="Maria Montessori"
-    className="w-40 h-40 md:w-45 md:h-45 object-contain shadow-xl border-4 border-purple-900 rounded-full"
-  />
-</div>
+    <div className="flex justify-center md:justify-start">
+      <img
+        src={yourImage}
+        alt="Maria Montessori"
+        className="w-32 h-32 md:w-44 md:h-44 object-cover shadow-xl border-4 border-purple-900 rounded-full"
+      />
+    </div>
 
     {/* RIGHT TEXT */}
-    <div className="flex-1 text-left -ml-38">
-      <span className="text-5xl md:text-8xl text-purple-200 block mb-2 leading-none">
+    <div className="text-center md:text-left md:max-w-xl">
+
+      <span className="text-4xl md:text-7xl text-purple-200 block mb-2 leading-none">
         "
       </span>
 
-      <blockquote className="md:text-xl text-slate-800 leading-snug">
+      <blockquote className="text-base md:text-xl text-slate-800 leading-relaxed">
         The greatest sign of success for a teacher is to be able to say:
         the children are now working as if I did not exist.
       </blockquote>
 
-      <cite className="text-slate-500 font-medium tracking-widest uppercase text-sm block mt-4">
+      <cite className="text-slate-500 font-medium tracking-widest uppercase text-xs md:text-sm block mt-4">
         — Maria Montessori
       </cite>
+
     </div>
 
   </div>

@@ -283,8 +283,7 @@ const Experience = () => {
 </div>
 
      {/* Final CTA */}
-<section className="relative py-28 px-6 bg-slate-50 overflow-hidden">
-
+<section className="relative mt-12 py-28 px-6 bg-slate-50 overflow-hidden">
    {/* Background Image */}
 <div className="absolute inset-0">
   <img
@@ -294,10 +293,10 @@ const Experience = () => {
   />
 
   {/* Dark Overlay (main control) */}
-  <div className="absolute inset-0 bg-black/50" />
+  <div className="absolute inset-0 bg-black/60" />
 
   {/* Soft gradient for depth */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/50" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/60" />
 </div>
 
    <motion.div
