@@ -49,7 +49,7 @@ const Curriculum = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen selection:bg-purple-100">
+    <div className="bg-white min-h-screen selection:bg-purple-200 selection:text-slate-900">
       <Navbar />
 
       {/* Hero Section */}
@@ -206,8 +206,11 @@ const Curriculum = () => {
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-                <img src={elementaryCuriosityImg} alt="Elementary: Curiosity Unleashed" className="w-full h-130" />
-              </div>
+<img
+  src={elementaryCuriosityImg}
+  alt="Elementary: Curiosity Unleashed"
+  className="w-full h-[520px] object-cover"
+/>              </div>
             </motion.div>
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -275,7 +278,6 @@ const Curriculum = () => {
   <div className="absolute inset-0 bg-slate-900/70" />
 
   {/* Content */}
-  {/* Content */}
 <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -319,75 +321,7 @@ const Curriculum = () => {
       {/* Admissions Callout */}
       
       <section className="py-15 px-6 bg-white relative overflow-hidden text-center">
-        {/* Purple Glow Background */}
-      {/* Lavender Rain */}
-
-{[...Array(24)].map((_, i) => {
-  const leftSide = i < 9;
-
-  const left = leftSide
-    ? `${Math.random() * 22}%`
-    : `${78 + Math.random() * 22}%`;
-
-  const duration = 3 + Math.random() * 2;
-  const delay = Math.random() * 4;
-
-  return (
-    <div key={i}>
-      {/* Falling Drop */}
-      <motion.div
-        className="absolute rounded-full bg-gradient-to-b from-purple-400/20 via-purple-600/50 to-purple-800/70"
-        style={{
-          width: "2.5px",
-          height: `${35 + Math.random() * 30}px`,
-          left,
-          top: "-80px",
-          filter: "blur(0.4px)",
-        }}
-        initial={{
-          y: -100,
-          opacity: 0,
-        }}
-        animate={{
-          y: 900,
-          opacity: [0, 1, 1, 0],
-        }}
-        transition={{
-          duration,
-          delay,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-
-      {/* Ground Ripple */}
-      <motion.div
-        className="absolute rounded-full border border-purple-500/30"
-        style={{
-          width: 6,
-          height: 6,
-          left: `calc(${left} - 2px)`,
-          bottom: "15px",
-        }}
-        initial={{
-          scale: 0,
-          opacity: 0,
-        }}
-        animate={{
-          scale: [0, 2.5],
-          opacity: [0.7, 0],
-        }}
-        transition={{
-          duration: 0.45,
-          delay: delay + duration - 0.1,
-          repeat: Infinity,
-          repeatDelay: duration + 3.55,
-          ease: "easeOut",
-        }}
-      />
-    </div>
-  );
-})}
+        
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}

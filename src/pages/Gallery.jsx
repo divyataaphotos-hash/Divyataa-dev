@@ -129,8 +129,9 @@ const galleryItems = [
   { type: 'image', category: 'events', src: eventImg20, title: "Footprint of tomorrow"},
   { type: 'image', category: 'events', src: eventImg21, title: "Beyond the Horizon"},
   { type: 'image', category: 'campus', src: campusImg1, title: "Stars in the making"},
-  { type: 'image', category: 'campus', src: campusImg2, title: "Symphony of Dreams"},
-  { type: 'image', category: 'campus', src: campusImg3, title: "Shining Together"},
+  { type: 'image', category: 'campus', src: campusImg1, title: "Campus"},
+  { type: 'image', category: 'campus', src: campusImg2, title: "Campus"},
+  { type: 'image', category: 'campus', src: campusImg3, title: "Image3"},
   { type: 'image', category: 'events', src: eventImg22, title: "Blooming Buds"},
   { type: 'image', category: 'events', src: eventImg23, title: "Imagine, Create, Achieve"},
   { type: 'image', category: 'events', src: eventImg24, title: "Rainbow of Talents"},
@@ -184,7 +185,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen selection:bg-purple-200 selection:text-slate-900">
+    <div className="bg-white min-h-screen selection:bg-purple-100">
       <Navbar />
 
       {/* Video Banner Hero */}

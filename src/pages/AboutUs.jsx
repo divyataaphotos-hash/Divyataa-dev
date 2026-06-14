@@ -35,7 +35,7 @@ const AboutUs = () => {
   />
 </div>
   <div className="absolute inset-0 bg-black/50" />
- 
+  
   <div className="max-w-7xl mx-auto text-center relative z-10">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
@@ -85,7 +85,7 @@ const AboutUs = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
-           
+            
             {/* ── Chairman's Legacy Card ── */}
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -105,7 +105,7 @@ const AboutUs = () => {
                     <p className="text-purple-600 font-bold text-sm uppercase tracking-widest">Chairman and Founder</p>
                   </div>
                 </div>
-               
+                
                 <div className="mb-8 pb-8 border-b border-slate-200">
                   <p className="text-slate-800 font-medium gayathri leading-relaxed text-sm md:text-base">
                     First-generation school founder carrying a century-long family legacy of educational philanthropy. Education as a gift to the community.
@@ -276,7 +276,7 @@ const AboutUs = () => {
             </p>
           </motion.div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-stretch">            {[
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-stretch"> {[
   {
     title: "The child in meditation",
     desc: "At the centre of the logo sits a child in a posture of calm and inner stillness. Not performing. Not competing. Simply present. This is the child we aspire to nurture: one who has learned to be at peace with themselves, to concentrate deeply, and to direct their own mind."
@@ -322,7 +322,7 @@ className="
   hover:shadow-purple-900/5
   transition-all
   duration-500
-"              >
+" >
                 {item.logo ? (
   <div className="flex flex-1 items-center justify-center">
     <img
@@ -461,21 +461,30 @@ className="
 
 </div>
 <div className="max-w-6xl mx-auto relative z-10 px-4">
-<div className="flex flex-col md:flex-row items-center justify-center text-center gap-6">
 
-    {/* LEFT IMAGE */}
-    <div className="flex justify-center md:justify-start">
+  <div className="flex flex-col items-center justify-center text-center gap-6">
+
+    {/* IMAGE - CENTERED */}
+    <div className="flex justify-center">
       <img
-        src={yourImage}
-        alt="Maria Montessori"
-        className="w-32 h-32 md:w-44 md:h-44 object-cover shadow-xl border-4 border-purple-900 rounded-full"
-      />
+  src={yourImage}
+  alt="Maria Montessori"
+  className="
+    w-36 h-36 
+    md:w-48 md:h-48 
+    object-cover 
+    object-[50%_5%] /* 👈 moves face slightly UP */
+    shadow-xl 
+    border-4 border-purple-900 
+    rounded-full
+  "
+/>
     </div>
 
-    {/* RIGHT TEXT */}
-    <div className="text-center md:text-left md:max-w-xl">
+    {/* TEXT */}
+    <div className="max-w-2xl">
 
-      <span className="text-4xl md:text-7xl text-purple-200 block mb-2 leading-none">
+      <span className="text-4xl md:text-6xl text-purple-200 block mb-2 leading-none">
         "
       </span>
 
@@ -492,7 +501,6 @@ className="
 
   </div>
 </div>
-
   {/* Background dots */}
   <div
     className="absolute inset-0 opacity-[0.03] pointer-events-none"

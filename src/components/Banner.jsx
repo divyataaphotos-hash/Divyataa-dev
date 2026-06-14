@@ -60,7 +60,7 @@ const Banner = () => {
             className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto"
           >
             <Link
-              to="/why-divyataa"
+              to="/about-us"
               className="flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-purple-600 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm md:text-base font-bold text-white shadow-[0_8px_24px_rgba(114,8,179,0.4)] hover:bg-purple-500 hover:scale-105 active:scale-95 transition-all"
             >
               Explore programmes <ArrowRight size={18} />
