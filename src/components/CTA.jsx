@@ -125,7 +125,7 @@ const CTA = () => {
           viewport={{ once: true }}
          className="inline-block px-2 py-2 mb-2 md:mb-2 rounded-full bg-purple-50 text-purple-600 font-bold tracking-widest text-[10px] md:text-xs uppercase shadow-md border border-purple-100/50"
           >
-          2025–26 Admissions Open
+          2026–27 Admissions Open
         </motion.span>
 
         {/* Heading */}

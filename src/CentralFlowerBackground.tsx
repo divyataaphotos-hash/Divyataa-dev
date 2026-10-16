@@ -208,7 +208,11 @@ const CentralFlowerBackground = ({
   const opacity = calculateOpacity();
 
   // Respect reduced motion preference
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // (read after mount: there is no window during prerender)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }, []);
   const showAllPetals = prefersReducedMotion;
 
   // Calculate size for SVG - make it responsive to screen size

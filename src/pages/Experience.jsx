@@ -7,25 +7,25 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusImg from '../Website/Gallery Page/Campus/schlImg.png';
+import campusImg from '../Website/Gallery Page/Campus/schlImg.jpg';
 import classroomImg from '../assets/placeholder-classroom-Db3PxBcM.webp';
 import outdoorImg from '../assets/hero-children-B1qFxMJF.webp';
 import materialsImg from '../assets/placeholder-materials-D6uKM2bM.webp';
 import learningImg from '../assets/children-learning-C8YlCPHq.webp';
-import silambamImg from '../Website/Gallery Page/Field trip/image (4).png';
+import silambamImg from '../Website/Gallery Page/Field trip/image (4).jpg';
 import whyMontessoriImg from '../assets/silambam 2.webp';
-import eventsImg from '../assets/calm1.png';
-import events2Img from '../assets/calm2.png';
-import annualDayImg from '../assets/image (13).png';
-import annualDayImg2 from '../Website/Gallery Page/Extracurricular/image(101).png';
+import eventsImg from '../assets/calm1.jpg';
+import events2Img from '../assets/calm2.jpg';
+import annualDayImg from '../assets/image (13).jpg';
+import annualDayImg2 from '../Website/Gallery Page/Extracurricular/image(101).jpg';
 import gal1 from '../assets/gallery/5C7A9014.JPG';
 import gal2 from '../assets/extracurr1.jpg';
 import gal3 from '../assets/gallery/5C7A9810.JPG';
 import eventImg from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG';
 import annualImg from '../Website/Gallery Page/Annual Day/5C7A9603.JPG';
 import fieldImg from '../Website/Gallery Page/Field trip/0bf8d5c7-90c3-4e15-ad3c-96ed14e14a71.jpg';
-import extcurImg from '../Website/Gallery Page/Extracurricular/image (1).png';
-import readyImg from '../Website/Gallery Page/Extracurricular/image (5).png';
+import extcurImg from '../Website/Gallery Page/Extracurricular/image (1).jpg';
+import readyImg from '../Website/Gallery Page/Extracurricular/image (5).jpg';
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },

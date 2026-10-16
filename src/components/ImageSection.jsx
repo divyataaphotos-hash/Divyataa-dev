@@ -6,7 +6,7 @@ import classImg1 from '../Website/Gallery Page/Classsroom Life/018A8914.JPG';
 import eventImg1 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg';
 import fieldImg from '../assets/fieldtrip1.jpg';
 import extraImg from '../assets/extracurr1.jpg';
-import eventImg from '../assets/image (13).png';
+import eventImg from '../assets/image (13).jpg';
 
 const ImageSection = () => {
   const images = [

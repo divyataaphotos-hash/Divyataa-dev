@@ -19,17 +19,17 @@ import classImg9 from '../Website/Gallery Page/Classsroom Life/IMG_4939.JPG';
 import classImg10 from '../Website/Gallery Page/Classsroom Life/IMG_4952.JPG';
 import classImg11 from '../Website/Gallery Page/Classsroom Life/IMG_4956.JPG';
 import classImg13 from '../Website/Gallery Page/Classsroom Life/IMG_4959.JPG';
-import classImg14 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h39m38s850.png';
-import classImg15 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h41m17s460.png';
-import classImg16 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m01s281.png';
-import classImg17 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m56s677.png';
-import classImg18 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h43m15s934.png';
-import classImg19 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h46m28s932.png';
-import classImg20 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h58m58s787.png';
+import classImg14 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h39m38s850.jpg';
+import classImg15 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h41m17s460.jpg';
+import classImg16 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m01s281.jpg';
+import classImg17 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m56s677.jpg';
+import classImg18 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h43m15s934.jpg';
+import classImg19 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h46m28s932.jpg';
+import classImg20 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h58m58s787.jpg';
 import eventImg1 from '../Website/Gallery Page/Events & Festivals/1000016403_c81811717c98ef55c851c01faa2029fa-10_04_2026, 13_03_40.jpg';
 import eventImg2 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg';
-import eventImg3 from '../Website/Gallery Page/Events & Festivals/image (13).png';
-import eventImg4 from '../Website/Gallery Page/Events & Festivals/image (14).png';
+import eventImg3 from '../Website/Gallery Page/Events & Festivals/image (13).jpg';
+import eventImg4 from '../Website/Gallery Page/Events & Festivals/image (14).jpg';
 import eventImg5 from '../Website/Gallery Page/Events & Festivals/IMG_4317.JPG';
 import eventImg6 from '../Website/Gallery Page/Events & Festivals/IMG_5213.jpg';
 import eventImg18 from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG';
@@ -60,16 +60,16 @@ import sportImg2 from '../Website/Gallery Page/Extracurricular/6b35c38a-15fa-482
 import sportImg3 from '../Website/Gallery Page/Extracurricular/6db167be-7732-45d4-8c63-063152049f3b.jpg';
 import sportImg4 from '../Website/Gallery Page/Extracurricular/292A1320.JPG';
 import sportImg5 from '../Website/Gallery Page/Extracurricular/4382eefe-b755-42dd-866b-a098b44a8669.jpg';
-import sportImg6 from '../Website/Gallery Page/Extracurricular/image (1).png';
-import sportImg7 from '../Website/Gallery Page/Extracurricular/image (2).png';
-import sportImg8 from '../Website/Gallery Page/Extracurricular/image (5).png';
-import sportImg9 from '../Website/Gallery Page/Extracurricular/image (7).png';
-import sportImg10 from '../Website/Gallery Page/Extracurricular/image (8).png';
-import sportImg11 from '../Website/Gallery Page/Extracurricular/image (9).png';
-import sportImg12 from '../Website/Gallery Page/Extracurricular/image (10).png';
-import sportImg13 from '../Website/Gallery Page/Extracurricular/image (11).png';
+import sportImg6 from '../Website/Gallery Page/Extracurricular/image (1).jpg';
+import sportImg7 from '../Website/Gallery Page/Extracurricular/image (2).jpg';
+import sportImg8 from '../Website/Gallery Page/Extracurricular/image (5).jpg';
+import sportImg9 from '../Website/Gallery Page/Extracurricular/image (7).jpg';
+import sportImg10 from '../Website/Gallery Page/Extracurricular/image (8).jpg';
+import sportImg11 from '../Website/Gallery Page/Extracurricular/image (9).jpg';
+import sportImg12 from '../Website/Gallery Page/Extracurricular/image (10).jpg';
+import sportImg13 from '../Website/Gallery Page/Extracurricular/image (11).jpg';
 import sportImg14 from '../Website/Gallery Page/Extracurricular/image (15).png';
-import sportImg15 from '../Website/Gallery Page/Extracurricular/image.png';
+import sportImg15 from '../Website/Gallery Page/Extracurricular/image.jpg';
 
 
 // Assets no longer used for gallery grid but keeping imports clean
@@ -198,6 +198,7 @@ const Gallery = () => {
     muted
     loop
     playsInline
+    poster="/gallery-banner-poster.jpg"
     className="absolute inset-0 w-full h-full object-cover"
   >
     <source src="/gallery-banner.mp4" type="video/mp4" />

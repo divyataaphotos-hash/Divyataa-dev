@@ -29,10 +29,18 @@ const Counter = ({ end, suffix = "" }) => {
     return () => clearInterval(timer);
   }, [end, isInView]);
 
+  // The animated number starts at 0, so also give crawlers and screen
+  // readers the real figure.
   return (
     <span ref={ref}>
-      {count}
-      {suffix}
+      <span aria-hidden="true">
+        {count}
+        {suffix}
+      </span>
+      <span className="sr-only">
+        {end}
+        {suffix}
+      </span>
     </span>
   );
 };
