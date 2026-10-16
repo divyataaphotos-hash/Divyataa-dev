@@ -6,70 +6,73 @@ import Footer from '../components/Footer';
 import classVideo1 from '../assets/videos/IMG_5163.mp4';
 import classVideo2 from '../assets/videos/IMG_5187.mp4';
 import classVideo3 from '../assets/videos/IMG_5188.mp4';
-import classImg12 from '../Website/Gallery Page/Classsroom Life/018A8914.JPG';
-import classImg1 from '../Website/Gallery Page/Classsroom Life/018A8924.JPG';
-import classImg2 from '../Website/Gallery Page/Classsroom Life/018A8939.JPG';
-import classImg3 from '../Website/Gallery Page/Classsroom Life/018A8941.JPG';
-import classImg4 from '../Website/Gallery Page/Classsroom Life/018A8943.JPG';
-import classImg5 from '../Website/Gallery Page/Classsroom Life/018A8945.JPG';
-import classImg6 from '../Website/Gallery Page/Classsroom Life/IMG_4910.JPG';
-import classImg7 from '../Website/Gallery Page/Classsroom Life/IMG_4912.JPG';
-import classImg8 from '../Website/Gallery Page/Classsroom Life/IMG_4915.JPG';
-import classImg9 from '../Website/Gallery Page/Classsroom Life/IMG_4939.JPG';
-import classImg10 from '../Website/Gallery Page/Classsroom Life/IMG_4952.JPG';
-import classImg11 from '../Website/Gallery Page/Classsroom Life/IMG_4956.JPG';
-import classImg13 from '../Website/Gallery Page/Classsroom Life/IMG_4959.JPG';
-import classImg14 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h39m38s850.jpg';
-import classImg15 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h41m17s460.jpg';
-import classImg16 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m01s281.jpg';
-import classImg17 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m56s677.jpg';
-import classImg18 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h43m15s934.jpg';
-import classImg19 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h46m28s932.jpg';
-import classImg20 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h58m58s787.jpg';
-import eventImg1 from '../Website/Gallery Page/Events & Festivals/1000016403_c81811717c98ef55c851c01faa2029fa-10_04_2026, 13_03_40.jpg';
-import eventImg2 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg';
-import eventImg3 from '../Website/Gallery Page/Events & Festivals/image (13).jpg';
-import eventImg4 from '../Website/Gallery Page/Events & Festivals/image (14).jpg';
-import eventImg5 from '../Website/Gallery Page/Events & Festivals/IMG_4317.JPG';
-import eventImg6 from '../Website/Gallery Page/Events & Festivals/IMG_5213.jpg';
-import eventImg18 from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG';
-import eventImg19 from '../Website/Gallery Page/Events & Festivals/IMG_7235.JPG';
-import eventImg20 from '../Website/Gallery Page/Events & Festivals/IMG_7301.JPG';
-import eventImg21 from '../Website/Gallery Page/Events & Festivals/IMG_7303.JPG';
-import campusImg1 from '../Website/Gallery Page/Campus/8f8e94c0-49a5-4fed-bdb4-d25b3a92bc38 (1).jpg';
-import campusImg2 from '../Website/Gallery Page/Campus/ab76e0e4-4927-4ed0-a8ea-d8017a20d88a (2).jpg';
-import campusImg3 from '../Website/Gallery Page/Campus/e6cebd15-a4b7-4d83-98e9-48e43fb47d65 (1).jpg';
-import eventImg22 from '../Website/Gallery Page/Annual Day/5C7A9014.JPG';
-import eventImg23 from '../Website/Gallery Page/Annual Day/5C7A9114.JPG';
-import eventImg24 from '../Website/Gallery Page/Annual Day/5C7A9124.JPG';
-import eventImg25 from '../Website/Gallery Page/Annual Day/5C7A9126.JPG';
-import eventImg26 from '../Website/Gallery Page/Annual Day/5C7A9141.JPG';
-import eventImg27 from '../Website/Gallery Page/Annual Day/5C7A9162.JPG';
-import eventImg28 from '../Website/Gallery Page/Annual Day/5C7A9168.JPG';
-import eventImg29 from '../Website/Gallery Page/Annual Day/5C7A9376.JPG';
-import eventImg30 from '../Website/Gallery Page/Annual Day/5C7A9448.JPG';
-import eventImg31 from '../Website/Gallery Page/Annual Day/5C7A9486.JPG';
-import eventImg32 from '../Website/Gallery Page/Annual Day/5C7A9583.JPG';
-import eventImg33 from '../Website/Gallery Page/Annual Day/5C7A9603.JPG';
-import eventImg34 from '../Website/Gallery Page/Annual Day/5C7A9683.JPG';
-import eventImg35 from '../Website/Gallery Page/Annual Day/5C7A9691.JPG';
-import eventImg36 from '../Website/Gallery Page/Annual Day/5C7A9738.JPG';
-import eventImg37 from '../Website/Gallery Page/Annual Day/5C7A9810.JPG';
-import sportImg1 from '../Website/Gallery Page/Extracurricular/5C7A9283.JPG';
-import sportImg2 from '../Website/Gallery Page/Extracurricular/6b35c38a-15fa-482d-b6de-32e5ca9e50c8.jpg';
-import sportImg3 from '../Website/Gallery Page/Extracurricular/6db167be-7732-45d4-8c63-063152049f3b.jpg';
-import sportImg4 from '../Website/Gallery Page/Extracurricular/292A1320.JPG';
-import sportImg5 from '../Website/Gallery Page/Extracurricular/4382eefe-b755-42dd-866b-a098b44a8669.jpg';
-import sportImg6 from '../Website/Gallery Page/Extracurricular/image (1).jpg';
-import sportImg7 from '../Website/Gallery Page/Extracurricular/image (2).jpg';
-import sportImg8 from '../Website/Gallery Page/Extracurricular/image (5).jpg';
-import sportImg9 from '../Website/Gallery Page/Extracurricular/image (7).jpg';
-import sportImg10 from '../Website/Gallery Page/Extracurricular/image (8).jpg';
-import sportImg11 from '../Website/Gallery Page/Extracurricular/image (9).jpg';
-import sportImg12 from '../Website/Gallery Page/Extracurricular/image (10).jpg';
-import sportImg13 from '../Website/Gallery Page/Extracurricular/image (11).jpg';
-import sportImg14 from '../Website/Gallery Page/Extracurricular/image (15).png';
-import sportImg15 from '../Website/Gallery Page/Extracurricular/image.jpg';
+import classPoster1 from '../assets/videos/IMG_5163-poster.jpg?gallery';
+import classPoster2 from '../assets/videos/IMG_5187-poster.jpg?gallery';
+import classPoster3 from '../assets/videos/IMG_5188-poster.jpg?gallery';
+import classImg12 from '../Website/Gallery Page/Classsroom Life/018A8914.JPG?gallery';
+import classImg1 from '../Website/Gallery Page/Classsroom Life/018A8924.JPG?gallery';
+import classImg2 from '../Website/Gallery Page/Classsroom Life/018A8939.JPG?gallery';
+import classImg3 from '../Website/Gallery Page/Classsroom Life/018A8941.JPG?gallery';
+import classImg4 from '../Website/Gallery Page/Classsroom Life/018A8943.JPG?gallery';
+import classImg5 from '../Website/Gallery Page/Classsroom Life/018A8945.JPG?gallery';
+import classImg6 from '../Website/Gallery Page/Classsroom Life/IMG_4910.JPG?gallery';
+import classImg7 from '../Website/Gallery Page/Classsroom Life/IMG_4912.JPG?gallery';
+import classImg8 from '../Website/Gallery Page/Classsroom Life/IMG_4915.JPG?gallery';
+import classImg9 from '../Website/Gallery Page/Classsroom Life/IMG_4939.JPG?gallery';
+import classImg10 from '../Website/Gallery Page/Classsroom Life/IMG_4952.JPG?gallery';
+import classImg11 from '../Website/Gallery Page/Classsroom Life/IMG_4956.JPG?gallery';
+import classImg13 from '../Website/Gallery Page/Classsroom Life/IMG_4959.JPG?gallery';
+import classImg14 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h39m38s850.jpg?gallery';
+import classImg15 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h41m17s460.jpg?gallery';
+import classImg16 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m01s281.jpg?gallery';
+import classImg17 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h42m56s677.jpg?gallery';
+import classImg18 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h43m15s934.jpg?gallery';
+import classImg19 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h46m28s932.jpg?gallery';
+import classImg20 from '../Website/Gallery Page/Classsroom Life/vlcsnap-2026-04-04-12h58m58s787.jpg?gallery';
+import eventImg1 from '../Website/Gallery Page/Events & Festivals/1000016403_c81811717c98ef55c851c01faa2029fa-10_04_2026, 13_03_40.jpg?gallery';
+import eventImg2 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg?gallery';
+import eventImg3 from '../Website/Gallery Page/Events & Festivals/image (13).jpg?gallery';
+import eventImg4 from '../Website/Gallery Page/Events & Festivals/image (14).jpg?gallery';
+import eventImg5 from '../Website/Gallery Page/Events & Festivals/IMG_4317.JPG?gallery';
+import eventImg6 from '../Website/Gallery Page/Events & Festivals/IMG_5213.jpg?gallery';
+import eventImg18 from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG?gallery';
+import eventImg19 from '../Website/Gallery Page/Events & Festivals/IMG_7235.JPG?gallery';
+import eventImg20 from '../Website/Gallery Page/Events & Festivals/IMG_7301.JPG?gallery';
+import eventImg21 from '../Website/Gallery Page/Events & Festivals/IMG_7303.JPG?gallery';
+import campusImg1 from '../Website/Gallery Page/Campus/8f8e94c0-49a5-4fed-bdb4-d25b3a92bc38 (1).jpg?gallery';
+import campusImg2 from '../Website/Gallery Page/Campus/ab76e0e4-4927-4ed0-a8ea-d8017a20d88a (2).jpg?gallery';
+import campusImg3 from '../Website/Gallery Page/Campus/e6cebd15-a4b7-4d83-98e9-48e43fb47d65 (1).jpg?gallery';
+import eventImg22 from '../Website/Gallery Page/Annual Day/5C7A9014.JPG?gallery';
+import eventImg23 from '../Website/Gallery Page/Annual Day/5C7A9114.JPG?gallery';
+import eventImg24 from '../Website/Gallery Page/Annual Day/5C7A9124.JPG?gallery';
+import eventImg25 from '../Website/Gallery Page/Annual Day/5C7A9126.JPG?gallery';
+import eventImg26 from '../Website/Gallery Page/Annual Day/5C7A9141.JPG?gallery';
+import eventImg27 from '../Website/Gallery Page/Annual Day/5C7A9162.JPG?gallery';
+import eventImg28 from '../Website/Gallery Page/Annual Day/5C7A9168.JPG?gallery';
+import eventImg29 from '../Website/Gallery Page/Annual Day/5C7A9376.JPG?gallery';
+import eventImg30 from '../Website/Gallery Page/Annual Day/5C7A9448.JPG?gallery';
+import eventImg31 from '../Website/Gallery Page/Annual Day/5C7A9486.JPG?gallery';
+import eventImg32 from '../Website/Gallery Page/Annual Day/5C7A9583.JPG?gallery';
+import eventImg33 from '../Website/Gallery Page/Annual Day/5C7A9603.JPG?gallery';
+import eventImg34 from '../Website/Gallery Page/Annual Day/5C7A9683.JPG?gallery';
+import eventImg35 from '../Website/Gallery Page/Annual Day/5C7A9691.JPG?gallery';
+import eventImg36 from '../Website/Gallery Page/Annual Day/5C7A9738.JPG?gallery';
+import eventImg37 from '../Website/Gallery Page/Annual Day/5C7A9810.JPG?gallery';
+import sportImg1 from '../Website/Gallery Page/Extracurricular/5C7A9283.JPG?gallery';
+import sportImg2 from '../Website/Gallery Page/Extracurricular/6b35c38a-15fa-482d-b6de-32e5ca9e50c8.jpg?gallery';
+import sportImg3 from '../Website/Gallery Page/Extracurricular/6db167be-7732-45d4-8c63-063152049f3b.jpg?gallery';
+import sportImg4 from '../Website/Gallery Page/Extracurricular/292A1320.JPG?gallery';
+import sportImg5 from '../Website/Gallery Page/Extracurricular/4382eefe-b755-42dd-866b-a098b44a8669.jpg?gallery';
+import sportImg6 from '../Website/Gallery Page/Extracurricular/image (1).jpg?gallery';
+import sportImg7 from '../Website/Gallery Page/Extracurricular/image (2).jpg?gallery';
+import sportImg8 from '../Website/Gallery Page/Extracurricular/image (5).jpg?gallery';
+import sportImg9 from '../Website/Gallery Page/Extracurricular/image (7).jpg?gallery';
+import sportImg10 from '../Website/Gallery Page/Extracurricular/image (8).jpg?gallery';
+import sportImg11 from '../Website/Gallery Page/Extracurricular/image (9).jpg?gallery';
+import sportImg12 from '../Website/Gallery Page/Extracurricular/image (10).jpg?gallery';
+import sportImg13 from '../Website/Gallery Page/Extracurricular/image (11).jpg?gallery';
+import sportImg14 from '../Website/Gallery Page/Extracurricular/image (15).png?gallery';
+import sportImg15 from '../Website/Gallery Page/Extracurricular/image.jpg?gallery';
 
 
 const categories = [
@@ -80,7 +83,9 @@ const categories = [
   { id: 'events', label: 'Events and Annual Day' },
 ];
 
-// `title` is the caption shown on the tile; `alt` describes the photo for
+// Photos are imported with `?gallery` (see vite.config.js), so `src` is
+// { src, srcset, w, h } with a small WebP for tiles and a large one for the
+// lightbox. `title` is the caption shown on the tile; `alt` describes the photo for
 // search engines and screen readers and is shown in the lightbox.
 const galleryItems = [
   { type: 'video', category: 'events', id: 'hG-e0nbh5bM', title: "Principal's address" },
@@ -88,9 +93,9 @@ const galleryItems = [
   { type: 'video', category: 'events', id: 'KTVIJMbVOr4', title: "Bhangra dance" },
   { type: 'video', category: 'events', id: '5QPd0GmTRx0', title: "The spirit of beauty dance" },
   { type: 'video', category: 'events', id: 'GeBOLtLPHEw', title: "Devotional Dance" },
-  { type: 'video', category: 'classroom', src: classVideo1, title: "Classroom activity" },
-  { type: 'video', category: 'classroom', src: classVideo2, title: "Match the shapes" },
-  { type: 'video', category: 'classroom', src: classVideo3, title: "Shifting bowls" },
+  { type: 'video', category: 'classroom', src: classVideo1, poster: classPoster1, title: "Classroom activity" },
+  { type: 'video', category: 'classroom', src: classVideo2, poster: classPoster2, title: "Match the shapes" },
+  { type: 'video', category: 'classroom', src: classVideo3, poster: classPoster3, title: "Shifting bowls" },
   { type: 'video', category: 'events', id: 'bNjSrTw7sLA', title: "Skit-Social Awareness" },
   { type: 'video', category: 'events', id: 'WvaN5xkkWd4', title: "Mom & Me dance" },
   { type: 'video', category: 'sports', id: 'uLw-UkgPDxQ', title: "Karate Performance" },
@@ -175,18 +180,24 @@ const galleryItems = [
 ];
 
 
+const PAGE_SIZE = 24;
+const keyOf = (item) => item.id || item.src.src || item.src;
+const TILE_SIZES = '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw';
+
 const categoryLabel = (id) => categories.find((c) => c.id === id)?.label ?? id;
 
 const Gallery = () => {
   const [activeTab, setActiveTab] = useState('all');
   // Index into filteredItems of the item open in the lightbox, or null.
   const [openIndex, setOpenIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const touchStartX = useRef(null);
 
   const filteredItems = useMemo(
     () => (activeTab === 'all' ? galleryItems : galleryItems.filter((item) => item.category === activeTab)),
     [activeTab]
   );
+  const visibleItems = filteredItems.slice(0, visibleCount);
   const selectedMedia = openIndex === null ? null : filteredItems[openIndex];
 
   const close = useCallback(() => setOpenIndex(null), []);
@@ -275,7 +286,10 @@ const Gallery = () => {
             return (
               <button
                 key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
+                onClick={() => {
+                  setActiveTab(cat.id);
+                  setVisibleCount(PAGE_SIZE);
+                }}
                 className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors duration-300 ${
                   isActive ? 'text-white' : 'text-slate-500 hover:text-slate-700'
                 }`}
@@ -300,11 +314,11 @@ const Gallery = () => {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
         >
           <AnimatePresence mode="popLayout" initial={false}>
-            {filteredItems.map((item, index) => (
+            {visibleItems.map((item, index) => (
               <motion.button
                 type="button"
                 layout
-                key={item.id || item.src}
+                key={keyOf(item)}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
@@ -322,29 +336,33 @@ const Gallery = () => {
                 {/* Media Thumbnail */}
                 {item.type === 'image' ? (
                   <img
-                    src={item.src}
+                    src={item.src.src}
+                    srcSet={item.src.srcset}
+                    sizes={TILE_SIZES}
+                    width={item.src.w}
+                    height={item.src.h}
                     alt={item.alt || item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
                   />
                 ) : item.id ? (
                   <img
-                    src={`https://img.youtube.com/vi/${item.id}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
-                    onError={(e) => {
-                      e.target.src = `https://img.youtube.com/vi/${item.id}/hqdefault.jpg`;
-                    }}
+                    decoding="async"
                   />
                 ) : (
-                  // #t= makes browsers show a frame from the clip as the thumbnail
-                  <video
-                    muted
-                    playsInline
-                    preload="metadata"
-                    src={`${item.src}#t=0.5`}
-                    className="w-full h-full object-cover pointer-events-none"
+                  <img
+                    src={item.poster.src}
+                    srcSet={item.poster.srcset}
+                    sizes={TILE_SIZES}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
 
@@ -375,6 +393,18 @@ const Gallery = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {visibleCount < filteredItems.length && (
+          <div className="mt-12 text-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
+              className="inline-block rounded-full border border-purple-200 bg-purple-50 px-8 py-3 text-sm font-bold text-purple-700 hover:bg-purple-100 transition-colors"
+            >
+              Show more ({filteredItems.length - visibleCount} more)
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Lightbox */}
@@ -425,7 +455,7 @@ const Gallery = () => {
             )}
 
             <motion.div
-              key={selectedMedia.id || selectedMedia.src}
+              key={keyOf(selectedMedia)}
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
@@ -436,7 +466,9 @@ const Gallery = () => {
             >
               {selectedMedia.type === 'image' ? (
                 <img
-                  src={selectedMedia.src}
+                  src={selectedMedia.src.src}
+                  srcSet={selectedMedia.src.srcset}
+                  sizes="(min-width: 1100px) 1024px, 100vw"
                   alt={selectedMedia.alt || selectedMedia.title}
                   className="block w-full max-h-[70vh] object-contain bg-black"
                 />
@@ -453,6 +485,7 @@ const Gallery = () => {
               ) : (
                 <video
                   src={selectedMedia.src}
+                  poster={selectedMedia.poster.src}
                   controls
                   autoPlay
                   playsInline
