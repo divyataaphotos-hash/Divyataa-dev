@@ -31,6 +31,29 @@ h1, h2, h3, .font-serif {
   font-family: 'Playfair Display', serif;
 }
 
+/* Body paragraphs are justified site-wide. Hyphenation avoids wide word gaps
+   on narrow phone screens. */
+@layer base {
+  p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
+
+/* In centred blocks, justify too but centre the last line so paragraphs
+   still sit symmetrically under centred headings (one-line text stays
+   centred). Unlayered so it also overrides a `text-center` utility on <p>. */
+.text-center p,
+p.text-center {
+  text-align: justify;
+  text-align-last: center;
+}
+.text-center .text-left p,
+p.text-left {
+  text-align-last: auto;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
