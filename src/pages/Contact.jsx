@@ -58,7 +58,7 @@ const Contact = () => {
     {
       icon: <Clock className="text-purple-600" size={24} />,
       title: 'School hours',
-      content: 'Monday to Friday   ·   9:00 am to 4:00 pm',
+      content: 'Monday to Saturday   ·   9:00 am to 5:00 pm',
     },
     {
       icon: <MapPin className="text-purple-600" size={24} />,
