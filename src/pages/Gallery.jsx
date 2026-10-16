@@ -76,7 +76,7 @@ import sportImg15 from '../Website/Gallery Page/Extracurricular/image.jpg?galler
 
 
 const categories = [
-  { id: 'all', label: 'All' },
+  { id: 'highlights', label: 'Highlights' },
   { id: 'classroom', label: 'Classroom Life' },
   { id: 'sports', label: 'Sports and Co-Curricular' },
   { id: 'campus', label: 'Campus and Spaces' },
@@ -85,97 +85,99 @@ const categories = [
 
 // Photos are imported with `?gallery` (see vite.config.js), so `src` is
 // { src, srcset, w, h } with a small WebP for tiles and a large one for the
-// lightbox. `title` is the caption shown on the tile; `alt` describes the photo for
+// lightbox. `featured: n` puts an item in the Highlights tab at position n
+// (every item also appears in its own category tab). `title` is the caption
+// shown on the tile; `alt` describes the photo for
 // search engines and screen readers and is shown in the lightbox.
 const galleryItems = [
-  { type: 'video', category: 'events', id: 'hG-e0nbh5bM', title: "Principal's address" },
+  { type: 'video', category: 'events', id: 'hG-e0nbh5bM', featured: 23, title: "Principal's address" },
   { type: 'video', category: 'events', id: 'ysi8Zr5IpI4', title: "Convocation" },
   { type: 'video', category: 'events', id: 'KTVIJMbVOr4', title: "Bhangra dance" },
   { type: 'video', category: 'events', id: '5QPd0GmTRx0', title: "The spirit of beauty dance" },
   { type: 'video', category: 'events', id: 'GeBOLtLPHEw', title: "Devotional Dance" },
   { type: 'video', category: 'classroom', src: classVideo1, poster: classPoster1, title: "Classroom activity" },
-  { type: 'video', category: 'classroom', src: classVideo2, poster: classPoster2, title: "Match the shapes" },
+  { type: 'video', category: 'classroom', src: classVideo2, poster: classPoster2, featured: 16, title: "Match the shapes" },
   { type: 'video', category: 'classroom', src: classVideo3, poster: classPoster3, title: "Shifting bowls" },
   { type: 'video', category: 'events', id: 'bNjSrTw7sLA', title: "Skit-Social Awareness" },
   { type: 'video', category: 'events', id: 'WvaN5xkkWd4', title: "Mom & Me dance" },
-  { type: 'video', category: 'sports', id: 'uLw-UkgPDxQ', title: "Karate Performance" },
+  { type: 'video', category: 'sports', id: 'uLw-UkgPDxQ', featured: 34, title: "Karate Performance" },
   { type: 'video', category: 'events', id: 'AN88vvBB4Ko', title: "Colours of nature dance" },
   { type: 'video', category: 'sports', id: 'FIIT7RBansI', title: "Yoga Performance" },
-  { type: 'video', category: 'events', id: '3urrM1tUwG0', title: "A year in review" },
+  { type: 'video', category: 'events', id: '3urrM1tUwG0', featured: 6, title: "A year in review" },
   { type: 'video', category: 'events', id: '3aXeIFhULLM', title: "Welcome dance" },
 
   // Classroom life
-  { type: 'image', category: 'classroom', src: classImg12, title: "Knowledge Time", alt: "A Montessori guide leading circle time with children seated on the classroom floor" },
-  { type: 'image', category: 'classroom', src: classImg1, title: "Word Maze", alt: "A child working with Montessori language materials on a floor mat beside her guide" },
+  { type: 'image', category: 'classroom', src: classImg12, featured: 1, title: "Knowledge Time", alt: "A Montessori guide leading circle time with children seated on the classroom floor" },
+  { type: 'image', category: 'classroom', src: classImg1, featured: 29, title: "Word Maze", alt: "A child working with Montessori language materials on a floor mat beside her guide" },
   { type: 'image', category: 'classroom', src: classImg2, title: "Colour Tracks", alt: "A young child grading Montessori colour tablets on a floor mat" },
-  { type: 'image', category: 'classroom', src: classImg3, title: "One-on-One Lesson", alt: "A guide giving a child an individual lesson at a low work table" },
+  { type: 'image', category: 'classroom', src: classImg3, featured: 18, title: "One-on-One Lesson", alt: "A guide giving a child an individual lesson at a low work table" },
   { type: 'image', category: 'classroom', src: classImg4, title: "Verbal Training", alt: "A guide and child reading picture cards together at a small table" },
   { type: 'image', category: 'classroom', src: classImg5, title: "Image Identification", alt: "A guide showing a child how to match picture cards on a floor mat" },
   { type: 'image', category: 'classroom', src: classImg6, title: "Hands-on Craft", alt: "A child practising cutting with scissors at a work table" },
   { type: 'image', category: 'classroom', src: classImg7, title: "Design Thinking", alt: "Two boys tracing Montessori metal insets at their tables" },
   { type: 'image', category: 'classroom', src: classImg8, title: "Arts Time", alt: "A boy tracing shapes with a pencil using geometric insets" },
-  { type: 'image', category: 'classroom', src: classImg9, title: "Logical Minds", alt: "A child working with Montessori knobbed cylinders on the floor" },
+  { type: 'image', category: 'classroom', src: classImg9, featured: 14, title: "Logical Minds", alt: "A child working with Montessori knobbed cylinders on the floor" },
   { type: 'image', category: 'classroom', src: classImg10, title: "Creative Hands", alt: "A boy concentrating on a hands-on sensorial activity" },
-  { type: 'image', category: 'classroom', src: classImg11, title: "Stamp Game", alt: "A child doing place-value maths with the Montessori stamp game" },
+  { type: 'image', category: 'classroom', src: classImg11, featured: 11, title: "Stamp Game", alt: "A child doing place-value maths with the Montessori stamp game" },
   { type: 'image', category: 'classroom', src: classImg13, title: "Peg Board Counting", alt: "A child counting with green pegs on a Montessori peg board" },
-  { type: 'image', category: 'classroom', src: classImg14, title: "Shape Fix", alt: "Two children working together on a floor activity" },
-  { type: 'image', category: 'classroom', src: classImg15, title: "Golden Beads", alt: "A child building numbers with the Montessori golden bead material" },
+  { type: 'image', category: 'classroom', src: classImg14, featured: 26, title: "Shape Fix", alt: "Two children working together on a floor activity" },
+  { type: 'image', category: 'classroom', src: classImg15, featured: 22, title: "Golden Beads", alt: "A child building numbers with the Montessori golden bead material" },
   { type: 'image', category: 'classroom', src: classImg16, title: "Number Match", alt: "A child exploring thousand cubes from the golden bead material" },
-  { type: 'image', category: 'classroom', src: classImg17, title: "Around the world", alt: "Two children exploring continents on a Montessori globe" },
+  { type: 'image', category: 'classroom', src: classImg17, featured: 8, title: "Around the world", alt: "Two children exploring continents on a Montessori globe" },
   { type: 'image', category: 'classroom', src: classImg18, title: "Find the place", alt: "Children taking turns to find places on the globe" },
   { type: 'image', category: 'classroom', src: classImg19, title: "Language strength", alt: "A boy sitting quietly by the classroom shelves, ready to choose his work" },
-  { type: 'image', category: 'classroom', src: classImg20, title: "Abacus Time", alt: "A child counting units, tens, hundreds and thousands on a bead frame abacus" },
+  { type: 'image', category: 'classroom', src: classImg20, featured: 5, title: "Abacus Time", alt: "A child counting units, tens, hundreds and thousands on a bead frame abacus" },
   { type: 'image', category: 'classroom', src: sportImg15, title: "Story on the Big Screen", alt: "Children watching an animated story on the classroom smart screen with their teachers" },
 
   // Festivals and celebrations
-  { type: 'image', category: 'events', src: eventImg1, title: "Wonder and Shine", alt: "Children in festive clothes in front of a Navaratri golu display" },
-  { type: 'image', category: 'events', src: eventImg2, title: "Radiance", alt: "Children making a flower pookolam together on the floor" },
+  { type: 'image', category: 'events', src: eventImg1, featured: 19, title: "Wonder and Shine", alt: "Children in festive clothes in front of a Navaratri golu display" },
+  { type: 'image', category: 'events', src: eventImg2, featured: 4, title: "Radiance", alt: "Children making a flower pookolam together on the floor" },
   { type: 'image', category: 'events', src: eventImg3, title: "Dance of Dreams", alt: "Girls dressed in colourful festive outfits for a school celebration" },
   { type: 'image', category: 'events', src: eventImg4, title: "Little Explorers", alt: "Two children role-playing an exchange at a decorated doorway" },
-  { type: 'image', category: 'events', src: eventImg5, title: "The Enchanted Journey", alt: "The whole school gathered at the entrance for a group photo" },
+  { type: 'image', category: 'events', src: eventImg5, featured: 33, title: "The Enchanted Journey", alt: "The whole school gathered at the entrance for a group photo" },
   { type: 'image', category: 'events', src: eventImg6, title: "Dreamscape", alt: "A child holding a cardboard car model built in class" },
-  { type: 'image', category: 'events', src: eventImg18, title: "Every child a star", alt: "Children in traditional clothes celebrating Pongal with sugarcane" },
+  { type: 'image', category: 'events', src: eventImg18, featured: 9, title: "Every child a star", alt: "Children in traditional clothes celebrating Pongal with sugarcane" },
   { type: 'image', category: 'events', src: eventImg19, title: "Festival of dreams", alt: "Grandparents and children performing the Pongal puja together" },
-  { type: 'image', category: 'events', src: eventImg20, title: "Footprint of tomorrow", alt: "Parents and children taking part in a hoop race on sports day" },
+  { type: 'image', category: 'events', src: eventImg20, featured: 27, title: "Footprint of tomorrow", alt: "Parents and children taking part in a hoop race on sports day" },
   { type: 'image', category: 'events', src: eventImg21, title: "Beyond the Horizon", alt: "Families lined up on the track for a sports day race" },
 
   // Campus
-  { type: 'image', category: 'campus', src: campusImg1, title: "Our New Campus", alt: "Architectural rendering of the new Divyataa school building in Tirupur" },
+  { type: 'image', category: 'campus', src: campusImg1, featured: 13, title: "Our New Campus", alt: "Architectural rendering of the new Divyataa school building in Tirupur" },
   { type: 'image', category: 'campus', src: campusImg2, title: "The New Building", alt: "Rendering of the front of the new Divyataa building with its columned entrance" },
   { type: 'image', category: 'campus', src: campusImg3, title: "Grounds and Entrance", alt: "Rendering of the new campus entrance, forecourt and lawn" },
   { type: 'image', category: 'campus', src: sportImg6, title: "Visiting the Building Site", alt: "Children visiting the construction site of their new school building" },
-  { type: 'image', category: 'campus', src: sportImg7, title: "Watching the Builders", alt: "Children and a teacher talking with a builder at the new campus site" },
+  { type: 'image', category: 'campus', src: sportImg7, featured: 30, title: "Watching the Builders", alt: "Children and a teacher talking with a builder at the new campus site" },
 
   // Annual Day (Divyotsav)
   { type: 'image', category: 'events', src: eventImg22, title: "Blooming Buds", alt: "Children singing together on stage at the Divyotsav annual day" },
-  { type: 'image', category: 'events', src: eventImg23, title: "Imagine, Create, Achieve", alt: "A smiling boy greeting the audience with folded hands on stage" },
-  { type: 'image', category: 'events', src: eventImg24, title: "Rainbow of Talents", alt: "A child holding a yoga pose during the annual day yoga performance" },
+  { type: 'image', category: 'events', src: eventImg23, featured: 28, title: "Imagine, Create, Achieve", alt: "A smiling boy greeting the audience with folded hands on stage" },
+  { type: 'image', category: 'events', src: eventImg24, featured: 31, title: "Rainbow of Talents", alt: "A child holding a yoga pose during the annual day yoga performance" },
   { type: 'image', category: 'events', src: eventImg25, title: "Bright Beginnings", alt: "Young yoga performers in a backbend pose on stage" },
-  { type: 'image', category: 'events', src: eventImg26, title: "The wonder years", alt: "Children dressed as ladybirds performing on stage" },
-  { type: 'image', category: 'events', src: eventImg27, title: "Growing with grace", alt: "Children in butterfly wings performing a nature dance" },
+  { type: 'image', category: 'events', src: eventImg26, featured: 7, title: "The wonder years", alt: "Children dressed as ladybirds performing on stage" },
+  { type: 'image', category: 'events', src: eventImg27, featured: 12, title: "Growing with grace", alt: "Children in butterfly wings performing a nature dance" },
   { type: 'image', category: 'events', src: eventImg28, title: "Sparkles and smiles", alt: "Children dressed as sunflowers dancing on stage" },
   { type: 'image', category: 'events', src: eventImg29, title: "Wings to fly", alt: "A young girl singing a solo at the microphone" },
-  { type: 'image', category: 'events', src: eventImg30, title: "Celebrating young minds", alt: "Children dressed as chess pieces performing a skit" },
+  { type: 'image', category: 'events', src: eventImg30, featured: 24, title: "Celebrating young minds", alt: "Children dressed as chess pieces performing a skit" },
   { type: 'image', category: 'events', src: eventImg31, title: "Journey of Dreams", alt: "A child speaking into the microphone during the chess skit" },
-  { type: 'image', category: 'events', src: eventImg32, title: "Colours of Joy", alt: "Girls in silk skirts performing a classical dance" },
+  { type: 'image', category: 'events', src: eventImg32, featured: 15, title: "Colours of Joy", alt: "Girls in silk skirts performing a classical dance" },
   { type: 'image', category: 'events', src: eventImg33, title: "Tiny steps, Giant Leaps", alt: "Dancers performing in front of a starry night backdrop" },
   { type: 'image', category: 'events', src: eventImg34, title: "Dream, Discover, Shine", alt: "Children performing a folk dance with drums" },
-  { type: 'image', category: 'events', src: eventImg35, title: "A World of Wonder", alt: "Two young performers posing with a drum on stage" },
-  { type: 'image', category: 'events', src: eventImg36, title: "Little stars, big dreams", alt: "Graduating children in gowns adjusting their caps on stage" },
+  { type: 'image', category: 'events', src: eventImg35, featured: 20, title: "A World of Wonder", alt: "Two young performers posing with a drum on stage" },
+  { type: 'image', category: 'events', src: eventImg36, featured: 2, title: "Little stars, big dreams", alt: "Graduating children in gowns adjusting their caps on stage" },
   { type: 'image', category: 'events', src: eventImg37, title: "The Pillars", alt: "The graduating class with their teachers on stage at Divyotsav" },
 
   // Sports and co-curricular
-  { type: 'image', category: 'sports', src: sportImg1, title: "Karate on Stage", alt: "Children in karate uniforms performing a kata on stage" },
+  { type: 'image', category: 'sports', src: sportImg1, featured: 10, title: "Karate on Stage", alt: "Children in karate uniforms performing a kata on stage" },
   { type: 'image', category: 'sports', src: sportImg2, title: "Kolli Hills Cup 2025", alt: "Divyataa's karate team with coaches and parents at the Kolli Hills Cup 2025" },
-  { type: 'image', category: 'sports', src: sportImg3, title: "Kolli Hills Medallists", alt: "Young karate medallists holding trophies and certificates at the Kolli Hills Cup" },
-  { type: 'image', category: 'sports', src: sportImg4, title: "Silambam Practice", alt: "Children practising silambam, the traditional Tamil stick art, in the school courtyard" },
+  { type: 'image', category: 'sports', src: sportImg3, featured: 25, title: "Kolli Hills Medallists", alt: "Young karate medallists holding trophies and certificates at the Kolli Hills Cup" },
+  { type: 'image', category: 'sports', src: sportImg4, featured: 3, title: "Silambam Practice", alt: "Children practising silambam, the traditional Tamil stick art, in the school courtyard" },
   { type: 'image', category: 'sports', src: sportImg5, title: "Karate Championship 2024", alt: "Karate students with their trophies at the 2024 championship" },
   { type: 'image', category: 'sports', src: sportImg8, title: "Yellow Belt Grading", alt: "Students holding their new yellow karate belts with their senseis" },
-  { type: 'image', category: 'sports', src: sportImg9, title: "International Karate Meet", alt: "Divyataa students with trophies and certificates at an international karate championship" },
+  { type: 'image', category: 'sports', src: sportImg9, featured: 32, title: "International Karate Meet", alt: "Divyataa students with trophies and certificates at an international karate championship" },
   { type: 'image', category: 'sports', src: sportImg10, title: "Achievers", alt: "Young karate winners with the chief guests and officials" },
-  { type: 'image', category: 'sports', src: sportImg11, title: "Champions Return Home", alt: "Karate champions raising their trophies beside the school bus" },
+  { type: 'image', category: 'sports', src: sportImg11, featured: 17, title: "Champions Return Home", alt: "Karate champions raising their trophies beside the school bus" },
   { type: 'image', category: 'sports', src: sportImg12, title: "Watering the Garden", alt: "A child watering newly planted saplings in the school garden" },
-  { type: 'image', category: 'sports', src: sportImg13, title: "Nurturing Nature", alt: "A girl planting seedlings in the school garden" },
+  { type: 'image', category: 'sports', src: sportImg13, featured: 21, title: "Nurturing Nature", alt: "A girl planting seedlings in the school garden" },
   { type: 'image', category: 'sports', src: sportImg14, title: "Digging the Garden Beds", alt: "A boy loosening soil with a garden tool" },
 ];
 
@@ -187,14 +189,17 @@ const TILE_SIZES = '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw';
 const categoryLabel = (id) => categories.find((c) => c.id === id)?.label ?? id;
 
 const Gallery = () => {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState('highlights');
   // Index into filteredItems of the item open in the lightbox, or null.
   const [openIndex, setOpenIndex] = useState(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const touchStartX = useRef(null);
 
   const filteredItems = useMemo(
-    () => (activeTab === 'all' ? galleryItems : galleryItems.filter((item) => item.category === activeTab)),
+    () =>
+      activeTab === 'highlights'
+        ? galleryItems.filter((item) => item.featured).sort((a, b) => a.featured - b.featured)
+        : galleryItems.filter((item) => item.category === activeTab),
     [activeTab]
   );
   const visibleItems = filteredItems.slice(0, visibleCount);
