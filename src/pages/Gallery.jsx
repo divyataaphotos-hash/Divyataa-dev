@@ -352,12 +352,18 @@ const Gallery = () => {
                     decoding="async"
                   />
                 ) : item.id ? (
+                  // YouTube's 640px thumbnail is 4:3 with black bars baked in;
+                  // scaling by 4/3 crops them so the frame fills the tile.
                   <img
-                    src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
+                    src={`https://i.ytimg.com/vi_webp/${item.id}/sddefault.webp`}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover scale-[1.34] transition-transform duration-700 group-hover:scale-[1.45]"
                     loading="lazy"
                     decoding="async"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
+                    }}
                   />
                 ) : (
                   <img
