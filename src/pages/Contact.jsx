@@ -44,6 +44,63 @@ const Contact = () => {
     }
   };
 
+  const admissionSteps = [
+    {
+      title: 'Enquire',
+      text: 'Fill in the enquiry form on this page, or call or WhatsApp us on +91 97511 12300.',
+    },
+    {
+      title: 'Visit the campus',
+      text: 'We will schedule a campus visit, ideally on a working morning, so you can see the children at work.',
+    },
+    {
+      title: 'Register on site',
+      text: 'If Divyataa feels right for your family, you complete the registration at the school during your visit.',
+    },
+  ];
+
+  const faqs = [
+    {
+      q: 'What ages and grades does Divyataa take?',
+      a: 'Divyataa takes children from KG to Grade 6: KG / Casa for ages 3 to 5, Lower Elementary for Grades 1 to 3, and Upper Elementary for Grades 4 to 6.',
+    },
+    {
+      q: 'Is Divyataa a pure Montessori school?',
+      a: 'Yes. Divyataa follows the Montessori method in its pure form: prepared classrooms with authentic Montessori materials, mixed-age classes, trained Montessori guides and three uninterrupted hours of self-directed work every morning, with no rote learning and no rank-based assessment.',
+    },
+    {
+      q: 'Which curriculum does Divyataa follow?',
+      a: 'Divyataa follows the Montessori curriculum from KG through Grade 6.',
+    },
+    {
+      q: 'When was Divyataa established?',
+      a: 'Divyataa was established in 2021 by the SMR Pavalammal Educational Trust, founded by Chairman Gi. Sudakar and Principal Kavitha Sudakar.',
+    },
+    {
+      q: 'How do I apply for admission?',
+      a: 'Fill in the enquiry form on this page or call or WhatsApp +91 97511 12300. We will schedule a campus visit, and registration is completed on site at the school.',
+    },
+    {
+      q: 'Can we visit the school before applying?',
+      a: 'Yes, and we encourage it. The best way to understand Divyataa is to visit on a working morning and watch the children at work.',
+    },
+    {
+      q: 'What are the school hours and where is the school?',
+      a: 'The school is open Monday to Saturday, 9:00 am to 5:00 pm, at #76/6, Angeripalayam Main Road, Tirupur 641 603, Tamil Nadu.',
+    },
+  ];
+
+  // FAQ structured data for search engines and AI assistants
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+
   const contactDetails = [
     {
       icon: <Phone className="text-purple-600" size={24} />,
@@ -328,6 +385,59 @@ const Contact = () => {
 </div>
 
 </section>
+
+      {/* ─── How admissions work ─── */}
+      <section id="admissions" className="py-20 px-6 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">
+              Admissions
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">How admissions work</h2>
+          </div>
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {admissionSteps.map((step, idx) => (
+              <li
+                key={step.title}
+                className="bg-white rounded-[2rem] p-8 shadow-xl shadow-slate-200/40 border border-slate-100"
+              >
+                <div className="w-12 h-12 rounded-full bg-purple-600 text-white font-serif font-bold text-xl flex items-center justify-center mb-6">
+                  {idx + 1}
+                </div>
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{step.title}</h3>
+                <p className="text-slate-700 leading-relaxed">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section id="faq" className="py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 text-center mb-12">
+            Frequently asked questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map(({ q, a }) => (
+              <details
+                key={q}
+                className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 open:shadow-lg open:shadow-slate-200/50 transition-shadow"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-slate-900 [&::-webkit-details-marker]:hidden">
+                  {q}
+                  <span className="shrink-0 text-2xl leading-none text-purple-600 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-4 text-slate-700 leading-relaxed">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      </section>
 
 <Footer />
 </div>
