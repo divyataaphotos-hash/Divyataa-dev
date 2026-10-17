@@ -9,7 +9,7 @@ const Banner = () => {
       className="relative w-full overflow-hidden h-[85dvh] min-h-[480px] md:h-dvh md:min-h-[580px]"
     >
       {/* Full-bleed background image */}
-      <img
+      <img fetchPriority="high"
         src={heroImg}
         alt="Divyataa children"
         className="absolute inset-0 w-full h-full object-cover object-center"

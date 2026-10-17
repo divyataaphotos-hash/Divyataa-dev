@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
+import LazyMap from './LazyMap';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -79,7 +80,7 @@ const Footer = () => {
   </h3>
 
   <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 h-48 bg-slate-50">
-    <iframe
+    <LazyMap
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.8812!2d77.3307!3d11.1278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9074e70a1b233%3A0x7fcff7033eb25aec!2sDIVYATAA-International%20School!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
       width="100%"
       height="100%"
@@ -89,7 +90,7 @@ const Footer = () => {
       referrerPolicy="no-referrer-when-downgrade"
       title="Divyataa International School Map"
       className="grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
-    ></iframe>
+     />
 
     <a
       href="https://maps.app.goo.gl/Z9wA5xkkWd4GRqDI8v"

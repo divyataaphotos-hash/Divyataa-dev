@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'l
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Image from '../Website/Gallery Page/Field trip/d0ac7f28-d4a3-437d-8dd2-7ba1a6f9837d.jpg';
+import LazyMap from '../components/LazyMap';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success
@@ -136,7 +137,7 @@ const Contact = () => {
         
         {/* Background Overlay Image */}
 <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-          <img
+          <img fetchPriority="high"
             src={Image}
             alt=""
             className="w-full h-full object-cover"
@@ -368,7 +369,7 @@ const Contact = () => {
     </div>
 
        <div className="mt-10 rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 h-[372px] relative">
-      <iframe
+      <LazyMap
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14884.40120274826!2d77.332928!3d11.128163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9074e70a1b233%3A0x7fcff7033eb25aec!2sDIVYATAA-International%20School!5e0!3m2!1sen!2sin!4v1776306643085!5m2!1sen!2sin"
         width="100%"
         height="100%"

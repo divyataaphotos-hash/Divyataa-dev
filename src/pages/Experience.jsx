@@ -26,6 +26,7 @@ import annualImg from '../Website/Gallery Page/Annual Day/5C7A9603.JPG';
 import fieldImg from '../Website/Gallery Page/Field trip/0bf8d5c7-90c3-4e15-ad3c-96ed14e14a71.jpg';
 import extcurImg from '../Website/Gallery Page/Extracurricular/image (1).jpg';
 import readyImg from '../Website/Gallery Page/Extracurricular/image (5).jpg';
+import LazyMap from '../components/LazyMap';
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0 },
@@ -45,7 +46,7 @@ const Experience = () => {
      
        {/* Background Image */}
        <div className="absolute inset-0">
-         <img
+         <img fetchPriority="high"
            src={campusImg}
            alt="Curriculum Background"
            className="w-full h-full object-cover"
@@ -125,7 +126,7 @@ const Experience = () => {
               </div>
             </div>
             <div className="lg:w-1/2 w-full rounded-3xl overflow-hidden shadow-inner h-[400px] bg-slate-100 relative group">
-               <iframe 
+               <LazyMap 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14884.40120274826!2d77.332928!3d11.128163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9074e70a1b233%3A0x7fcff7033eb25aec!2sDIVYATAA-International%20School!5e0!3m2!1sen!2sin!4v1776306643085!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
@@ -171,10 +172,10 @@ const Experience = () => {
             className="lg:w-1/2 grid grid-cols-2 gap-4"
           >
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]">
-              <img src={eventsImg} alt="Divyataa Events" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={eventsImg} alt="Divyataa Events" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] mt-12">
-              <img src={events2Img} alt="Divyataa Events 2" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={events2Img} alt="Divyataa Events 2" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -212,7 +213,7 @@ const Experience = () => {
             className="lg:w-1/2"
           >
             <div className="rounded-[3rem] overflow-hidden shadow-2xl relative group">
-              <img src={annualDayImg2} alt="Children at Annual Day" className="w-full h-auto object-cover" />
+              <img loading="lazy" decoding="async" src={annualDayImg2} alt="Children at Annual Day" className="w-full h-auto object-cover" />
               <div className="absolute inset-0 bg-purple-600/10 group-hover:bg-transparent transition-all duration-500" />
             </div>
           </motion.div>
@@ -237,7 +238,7 @@ const Experience = () => {
                   idx === 0 ? 'md:col-span-2 md:row-span-2 aspect-auto h-full' : ''
                 }`}
               >
-                <img src={img} alt={`Campus photo ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                <img loading="lazy" decoding="async" src={img} alt={`Campus photo ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </motion.div>
             ))}
           </div>
@@ -286,7 +287,7 @@ const Experience = () => {
 <section className="relative mt-12 py-28 px-6 bg-slate-50 overflow-hidden">
    {/* Background Image */}
 <div className="absolute inset-0">
-  <img
+  <img loading="lazy" decoding="async"
     src={readyImg}
     alt=""
     className="w-full h-full object-cover"

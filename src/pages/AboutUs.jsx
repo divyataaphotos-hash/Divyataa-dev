@@ -28,7 +28,7 @@ const AboutUs = () => {
 <section className="relative pt-50 pb-16 px-6 overflow-hidden bg-slate-50 border-b border-slate-100">
   {/* Background Overlay Image */}
 <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-  <img
+  <img fetchPriority="high"
     src={mottoOverlay}
     alt=""
     className="w-full h-full object-cover"
@@ -94,7 +94,7 @@ const AboutUs = () => {
               <div className="flex flex-col h-full">
                 <div className="flex flex-col md:flex-row gap-8 mb-8 items-center md:items-start">
                   <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl shrink-0 overflow-hidden shadow-xl">
-  <img
+  <img loading="lazy" decoding="async"
     src={founderImg}
     alt="Gi. Sudakar"
     className="w-full h-full object-cover"
@@ -132,7 +132,7 @@ const AboutUs = () => {
               <div className="flex flex-col h-full">
                 <div className="flex flex-col md:flex-row gap-8 mb-8 items-center md:items-start">
                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl shrink-0 overflow-hidden shadow-xl">
-  <img
+  <img loading="lazy" decoding="async"
     src={coFounderImg}
     alt="Kavitha Sudakar"
     className="w-full h-full object-cover"
@@ -219,7 +219,7 @@ const AboutUs = () => {
               className="relative"
             >
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/5">
-                <img
+                <img loading="lazy" decoding="async"
                   src={studyImg}
                   alt="Children studying at Divyataa"
                   className="w-full h-auto object-cover"
@@ -325,7 +325,7 @@ className="
 " >
                 {item.logo ? (
   <div className="flex flex-1 items-center justify-center">
-    <img
+    <img loading="lazy" decoding="async"
       src={schoolLogo}
       alt="Divyataa Logo"
       className="
@@ -466,7 +466,7 @@ className="
 
     {/* IMAGE - CENTERED */}
     <div className="flex justify-center">
-      <img
+      <img loading="lazy" decoding="async"
   src={yourImage}
   alt="Maria Montessori"
   className="

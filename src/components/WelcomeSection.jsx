@@ -51,7 +51,7 @@ const WelcomeSection = () => {
           viewport={{ once: true }}
           className="w-full lg:w-[45%] flex justify-center"
         >
-          <img
+          <img loading="lazy" decoding="async"
   src={schoolImg}
   alt="Divyataa School Campus"
   className="w-full h-[450px] md:h-[550px] lg:h-[454px] object-cover rounded-[30px] md:rounded-[40px] shadow-xl"

@@ -57,7 +57,7 @@ const Curriculum = () => {
 
   {/* Background Image */}
   <div className="absolute inset-0">
-    <img
+    <img fetchPriority="high"
       src={heroBg}
       alt="Curriculum Background"
       className="w-full h-full object-cover"
@@ -121,7 +121,7 @@ const Curriculum = () => {
               transition={{ delay: 0.2 }}
               className="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3]"
             >
-              <img src={whyMontessoriImg} alt="Why Montessori" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={whyMontessoriImg} alt="Why Montessori" className="w-full h-full object-cover" />
             </motion.div>
           </div>
 
@@ -168,7 +168,7 @@ const Curriculum = () => {
               className="order-1 lg:order-2"
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/5">
-                <img src={primaryCasaImg} alt="Primary Montessori: Casa" className="w-full h-auto" />
+                <img loading="lazy" decoding="async" src={primaryCasaImg} alt="Primary Montessori: Casa" className="w-full h-auto" />
               </div>
             </motion.div>
           </div>
@@ -206,7 +206,7 @@ const Curriculum = () => {
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
-<img
+<img loading="lazy" decoding="async"
   src={elementaryCuriosityImg}
   alt="Elementary: Curiosity Unleashed"
   className="w-full h-[520px] object-cover"

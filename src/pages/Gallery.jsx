@@ -194,6 +194,9 @@ const Gallery = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const touchStartX = useRef(null);
+  // The 2 MB banner video waits until the rest of the page has loaded;
+  // the poster image shows until then.
+  const [bannerVideoReady, setBannerVideoReady] = useState(false);
 
   const filteredItems = useMemo(
     () =>
@@ -213,6 +216,16 @@ const Gallery = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const start = () => setBannerVideoReady(true);
+    if (document.readyState === 'complete') {
+      const id = setTimeout(start, 0);
+      return () => clearTimeout(id);
+    }
+    window.addEventListener('load', start, { once: true });
+    return () => window.removeEventListener('load', start);
   }, []);
 
   // Keyboard navigation and background scroll lock while the lightbox is open.
@@ -256,10 +269,9 @@ const Gallery = () => {
             loop
             playsInline
             poster="/gallery-banner-poster.jpg"
+            src={bannerVideoReady ? '/gallery-banner.mp4' : undefined}
             className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/gallery-banner.mp4" type="video/mp4" />
-          </video>
+          />
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-slate-900/40 z-10" />
