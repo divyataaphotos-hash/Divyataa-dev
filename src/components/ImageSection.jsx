@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import campusImg from '../Website/Gallery Page/Campus/architectural-rendering-divyataa-school-building-tirupur.jpg';
+import campusImg from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg';
 import annualImg from '../Website/Gallery Page/Annual Day/children-butterfly-wings-performing-nature-dance.jpg';
 import classImg1 from '../Website/Gallery Page/Classsroom Life/montessori-guide-leading-circle-time-children.jpg';
 import eventImg1 from '../Website/Gallery Page/Events & Festivals/children-making-flower-pookolam-together-floor.jpg';
@@ -10,7 +10,7 @@ import eventImg from '../assets/girls-festive-traditional-dress-celebration.jpg'
 
 const ImageSection = () => {
   const images = [
-    { src: campusImg, alt: 'Architectural rendering of the new Divyataa International School building in Tirupur' },
+    { src: campusImg, alt: 'The Divyataa International School building in Tirupur at dusk' },
     { src: annualImg, alt: 'Children in butterfly wings performing a nature dance at the Divyataa annual day' },
     { src: classImg1, alt: 'A Montessori guide leading circle time with children at Divyataa, Tirupur' },
     { src: eventImg1, alt: 'Children making a flower pookolam together at a school celebration' },

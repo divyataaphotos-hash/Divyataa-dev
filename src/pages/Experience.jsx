@@ -7,7 +7,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusImg from '../Website/Gallery Page/Campus/divyataa-new-campus-building-front-view.jpg';
+import campusImg from '../assets/campus/divyataa-campus-building-wide-dusk-view.jpg';
+import campusEntranceImg from '../assets/campus/divyataa-campus-entrance-twilight.jpg';
 import classroomImg from '../assets/placeholder-classroom-Db3PxBcM.webp';
 import outdoorImg from '../assets/happy-children-divyataa-montessori-tirupur.webp';
 import materialsImg from '../assets/placeholder-materials-D6uKM2bM.webp';
@@ -48,7 +49,7 @@ const Experience = () => {
        <div className="absolute inset-0">
          <img fetchPriority="high"
            src={campusImg}
-           alt="Architectural rendering of the new Divyataa International School campus building in Tirupur"
+           alt="The Divyataa International School building on Angeripalayam Main Road, Tirupur, at dusk"
            className="w-full h-full object-cover"
          />
           {/* Dark Overlay */}
@@ -230,7 +231,7 @@ const Experience = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { src: campusImg, alt: 'Rendering of the new Divyataa campus building in Tirupur' },
+              { src: campusEntranceImg, alt: 'Entrance of the Divyataa International School building at twilight' },
               { src: silambamImg, alt: 'Students learning fire and rescue safety from officers on a field trip' },
               { src: outdoorImg, alt: 'Happy Divyataa children in school uniform raising their hands' },
               { src: learningImg, alt: 'Children learning geography with a Montessori globe' },

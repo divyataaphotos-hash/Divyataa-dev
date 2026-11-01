@@ -39,9 +39,9 @@ import eventImg18 from '../Website/Gallery Page/Events & Festivals/children-trad
 import eventImg19 from '../Website/Gallery Page/Events & Festivals/grandparents-children-performing-pongal-puja-together.jpg?gallery';
 import eventImg20 from '../Website/Gallery Page/Events & Festivals/parents-children-taking-part-hoop-race.jpg?gallery';
 import eventImg21 from '../Website/Gallery Page/Events & Festivals/families-lined-track-sports-day-race.jpg?gallery';
-import campusImg1 from '../Website/Gallery Page/Campus/architectural-rendering-divyataa-school-building-tirupur.jpg?gallery';
-import campusImg2 from '../Website/Gallery Page/Campus/rendering-front-divyataa-building-columned-entrance.jpg?gallery';
-import campusImg3 from '../Website/Gallery Page/Campus/rendering-campus-entrance-forecourt-lawn.jpg?gallery';
+import campusImg1 from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg?gallery';
+import campusImg2 from '../assets/campus/divyataa-campus-portico-night-close.jpg?gallery';
+import campusImg3 from '../assets/campus/divyataa-campus-entrance-twilight.jpg?gallery';
 import eventImg22 from '../Website/Gallery Page/Annual Day/children-singing-together-stage-divyotsav-annual.jpg?gallery';
 import eventImg23 from '../Website/Gallery Page/Annual Day/smiling-boy-greeting-audience-folded-hands.jpg?gallery';
 import eventImg24 from '../Website/Gallery Page/Annual Day/child-holding-yoga-pose-annual-day.jpg?gallery';
@@ -142,9 +142,9 @@ const galleryItems = [
   { type: 'image', category: 'events', src: eventImg21, title: "Beyond the Horizon", alt: "Families lined up on the track for a sports day race" },
 
   // Campus
-  { type: 'image', category: 'campus', src: campusImg1, featured: 13, title: "Our New Campus", alt: "Architectural rendering of the new Divyataa school building in Tirupur" },
-  { type: 'image', category: 'campus', src: campusImg2, title: "The New Building", alt: "Rendering of the front of the new Divyataa building with its columned entrance" },
-  { type: 'image', category: 'campus', src: campusImg3, title: "Grounds and Entrance", alt: "Rendering of the new campus entrance, forecourt and lawn" },
+  { type: 'image', category: 'campus', src: campusImg1, featured: 13, title: "Our Campus", alt: "The Divyataa International School building in Tirupur at dusk" },
+  { type: 'image', category: 'campus', src: campusImg2, title: "The Building at Night", alt: "The pillared portico of the Divyataa building lit up at night" },
+  { type: 'image', category: 'campus', src: campusImg3, title: "Our Entrance", alt: "The Divyataa entrance at twilight with the school banners" },
   { type: 'image', category: 'campus', src: sportImg6, title: "Visiting the Building Site", alt: "Children visiting the construction site of their new school building" },
   { type: 'image', category: 'campus', src: sportImg7, featured: 30, title: "Watching the Builders", alt: "Children and a teacher talking with a builder at the new campus site" },
 
