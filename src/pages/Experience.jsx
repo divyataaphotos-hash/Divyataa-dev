@@ -7,25 +7,25 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusImg from '../Website/Gallery Page/Campus/schlImg.jpg';
+import campusImg from '../Website/Gallery Page/Campus/divyataa-new-campus-building-front-view.jpg';
 import classroomImg from '../assets/placeholder-classroom-Db3PxBcM.webp';
-import outdoorImg from '../assets/hero-children-B1qFxMJF.webp';
+import outdoorImg from '../assets/happy-children-divyataa-montessori-tirupur.webp';
 import materialsImg from '../assets/placeholder-materials-D6uKM2bM.webp';
-import learningImg from '../assets/children-learning-C8YlCPHq.webp';
-import silambamImg from '../Website/Gallery Page/Field trip/image (4).jpg';
-import whyMontessoriImg from '../assets/silambam 2.webp';
-import eventsImg from '../assets/calm1.jpg';
-import events2Img from '../assets/calm2.jpg';
-import annualDayImg from '../assets/image (13).jpg';
-import annualDayImg2 from '../Website/Gallery Page/Extracurricular/image(101).jpg';
-import gal1 from '../assets/gallery/5C7A9014.JPG';
-import gal2 from '../assets/extracurr1.jpg';
-import gal3 from '../assets/gallery/5C7A9810.JPG';
-import eventImg from '../Website/Gallery Page/Events & Festivals/IMG_7231.JPG';
-import annualImg from '../Website/Gallery Page/Annual Day/5C7A9603.JPG';
-import fieldImg from '../Website/Gallery Page/Field trip/0bf8d5c7-90c3-4e15-ad3c-96ed14e14a71.jpg';
-import extcurImg from '../Website/Gallery Page/Extracurricular/image (1).jpg';
-import readyImg from '../Website/Gallery Page/Extracurricular/image (5).jpg';
+import learningImg from '../assets/children-learning-geography-globe.webp';
+import silambamImg from '../Website/Gallery Page/Field trip/fire-rescue-safety-demonstration-students.jpg';
+import whyMontessoriImg from '../assets/silambam-practice-school-courtyard.webp';
+import eventsImg from '../assets/children-exploring-montessori-globe.jpg';
+import events2Img from '../assets/children-collaborating-montessori-classroom.jpg';
+import annualDayImg from '../assets/girls-festive-traditional-dress-celebration.jpg';
+import annualDayImg2 from '../Website/Gallery Page/Extracurricular/children-watering-plants-school-garden.jpg';
+import gal1 from '../assets/gallery/annual-day-children-singing-stage.jpg';
+import gal2 from '../assets/karate-championship-trophies-divyataa.jpg';
+import gal3 from '../assets/gallery/graduation-ceremony-divyotsav-annual-day.jpg';
+import eventImg from '../Website/Gallery Page/Events & Festivals/children-traditional-clothes-celebrating-pongal-sugarcane.jpg';
+import annualImg from '../Website/Gallery Page/Annual Day/dancers-performing-front-starry-night-backdrop.jpg';
+import fieldImg from '../Website/Gallery Page/Field trip/child-crossing-rope-bridge-outdoor-play.jpg';
+import extcurImg from '../Website/Gallery Page/Extracurricular/children-visiting-construction-site-school-building.jpg';
+import readyImg from '../Website/Gallery Page/Extracurricular/students-holding-yellow-karate-belts-senseis.jpg';
 import LazyMap from '../components/LazyMap';
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -48,7 +48,7 @@ const Experience = () => {
        <div className="absolute inset-0">
          <img fetchPriority="high"
            src={campusImg}
-           alt="Curriculum Background"
+           alt="Architectural rendering of the new Divyataa International School campus building in Tirupur"
            className="w-full h-full object-cover"
          />
           {/* Dark Overlay */}
@@ -172,10 +172,10 @@ const Experience = () => {
             className="lg:w-1/2 grid grid-cols-2 gap-4"
           >
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]">
-              <img loading="lazy" decoding="async" src={eventsImg} alt="Divyataa Events" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={eventsImg} alt="Two children exploring continents on a Montessori globe in a prepared classroom" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] mt-12">
-              <img loading="lazy" decoding="async" src={events2Img} alt="Divyataa Events 2" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={events2Img} alt="Two children working together on a floor activity in a calm Montessori classroom" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -213,7 +213,7 @@ const Experience = () => {
             className="lg:w-1/2"
           >
             <div className="rounded-[3rem] overflow-hidden shadow-2xl relative group">
-              <img loading="lazy" decoding="async" src={annualDayImg2} alt="Children at Annual Day" className="w-full h-auto object-cover" />
+              <img loading="lazy" decoding="async" src={annualDayImg2} alt="Children watering plants in the Divyataa school garden" className="w-full h-auto object-cover" />
               <div className="absolute inset-0 bg-purple-600/10 group-hover:bg-transparent transition-all duration-500" />
             </div>
           </motion.div>
@@ -229,7 +229,21 @@ const Experience = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[campusImg, silambamImg, outdoorImg, learningImg, annualDayImg, gal1, gal2, gal3, whyMontessoriImg, eventImg, annualImg, fieldImg, extcurImg].map((img, idx) => (
+            {[
+              { src: campusImg, alt: 'Rendering of the new Divyataa campus building in Tirupur' },
+              { src: silambamImg, alt: 'Students learning fire and rescue safety from officers on a field trip' },
+              { src: outdoorImg, alt: 'Happy Divyataa children in school uniform raising their hands' },
+              { src: learningImg, alt: 'Children learning geography with a Montessori globe' },
+              { src: annualDayImg, alt: 'Girls in traditional dress at a school festival celebration' },
+              { src: gal1, alt: 'Children singing on stage at the Divyotsav annual day' },
+              { src: gal2, alt: 'Karate students with championship trophies' },
+              { src: gal3, alt: 'Graduating class on stage at the Divyotsav annual day' },
+              { src: whyMontessoriImg, alt: 'Children practising silambam in the school courtyard' },
+              { src: eventImg, alt: 'Children celebrating Pongal with sugarcane at school' },
+              { src: annualImg, alt: 'Dancers performing at the Divyataa annual day' },
+              { src: fieldImg, alt: 'A child crossing a rope bridge during outdoor play' },
+              { src: extcurImg, alt: 'Children visiting the construction site of their new school building' },
+            ].map((img, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -238,7 +252,7 @@ const Experience = () => {
                   idx === 0 ? 'md:col-span-2 md:row-span-2 aspect-auto h-full' : ''
                 }`}
               >
-                <img loading="lazy" decoding="async" src={img} alt={`Campus photo ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                <img loading="lazy" decoding="async" src={img.src} alt={img.alt} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </motion.div>
             ))}
           </div>
@@ -289,7 +303,7 @@ const Experience = () => {
 <div className="absolute inset-0">
   <img loading="lazy" decoding="async"
     src={readyImg}
-    alt=""
+    alt="Divyataa students holding their new yellow karate belts with their senseis"
     className="w-full h-full object-cover"
   />
 

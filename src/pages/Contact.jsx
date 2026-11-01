@@ -3,8 +3,52 @@ import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Image from '../Website/Gallery Page/Field trip/d0ac7f28-d4a3-437d-8dd2-7ba1a6f9837d.jpg';
+import Image from '../Website/Gallery Page/Field trip/road-safety-awareness-session-students.jpg';
 import LazyMap from '../components/LazyMap';
+
+const CHILD_OPTIONS = ['Starting KG (ages 3–5)', 'Grade 1–3', 'Grade 4–6', 'Not sure yet'];
+const WANT_OPTIONS = ['Visit the campus', 'A call back', 'Fee details', 'Just a question'];
+const VISIT_OPTIONS = ['This week', 'Next week', 'A Saturday', 'Not sure yet'];
+const SOURCE_OPTIONS = ['Friend / parent', 'Google', 'Instagram', 'ChatGPT / AI', 'Drove past', 'Other'];
+const WHATSAPP_LINK = `https://wa.me/919751112300?text=${encodeURIComponent(
+  "Hi, I'm interested in admission for my child at Divyataa International School."
+)}`;
+
+// Indian mobile numbers: 10 digits, optionally with a 0 or 91 prefix.
+const isValidPhone = (value) => {
+  const digits = value.replace(/\D/g, '');
+  return digits.length >= 10 && digits.length <= 12;
+};
+
+// One-tap answer chips used by the enquiry form.
+const ChipGroup = ({ label, options, value, onChange, optional = false }) => (
+  <fieldset className="space-y-3">
+    <legend className="text-sm font-bold text-black uppercase tracking-wider mb-3">
+      {label}
+      {optional && <span className="ml-2 normal-case tracking-normal font-normal text-slate-500">(optional)</span>}
+    </legend>
+    <div className="flex flex-wrap gap-2.5">
+      {options.map((option) => {
+        const selected = value === option;
+        return (
+          <button
+            key={option}
+            type="button"
+            aria-pressed={selected}
+            onClick={() => onChange(option)}
+            className={`px-4 py-2.5 rounded-full border text-sm md:text-base font-medium transition-colors ${
+              selected
+                ? 'bg-purple-600 border-purple-600 text-white shadow-md shadow-purple-200'
+                : 'bg-white border-slate-200 text-slate-700 hover:border-purple-300 hover:bg-purple-50'
+            }`}
+          >
+            {option}
+          </button>
+        );
+      })}
+    </div>
+  </fieldset>
+);
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success
@@ -13,23 +57,58 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [choices, setChoices] = useState({ child_stage: '', request: '', visit_when: '', heard_from: '' });
+  const [showEmail, setShowEmail] = useState(false);
+  const [showNote, setShowNote] = useState(false);
+  const [formError, setFormError] = useState('');
+
+  // Tapping a selected chip again clears it.
+  const choose = (field, value) => {
+    setChoices((prev) => ({ ...prev, [field]: prev[field] === value ? '' : value }));
+    setFormError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
+    const phone = form.phone_number;
+    const missing = [
+      !choices.child_stage && "your child's class",
+      !choices.request && 'what you would like',
+      !form.parent_name.value.trim() && 'your name',
+      !isValidPhone(phone.value) && 'a valid WhatsApp number',
+      !choices.heard_from && 'how you heard about us',
+    ].filter(Boolean);
+    if (missing.length) {
+      setFormError(`Please add ${missing.join(', ')}.`);
+      return;
+    }
     setFormStatus('sending');
-    
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const enquiry = {
+      parent_name: data.parent_name,
+      whatsapp_number: data.phone_number,
+      child_class: choices.child_stage,
+      would_like: choices.request,
+      ...(choices.request === 'Visit the campus' && { visit_when: choices.visit_when || 'Not specified' }),
+      heard_from: choices.heard_from,
+      ...(data.email && { email: data.email }),
+      ...(data.message && { message: data.message }),
+    };
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/divyataa.info@gmail.com", {
         method: "POST",
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          ...data,
-          _subject: `New Enquiry from ${data.parent_name} - Divyataa School`
+          ...enquiry,
+          _captcha: 'false',
+          _template: 'table',
+          _subject: `New enquiry: ${enquiry.parent_name} – ${enquiry.child_class} – ${enquiry.would_like}`
         })
       });
 
@@ -139,7 +218,7 @@ const Contact = () => {
 <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <img fetchPriority="high"
             src={Image}
-            alt=""
+            alt="Divyataa students at a road safety awareness session"
             className="w-full h-full object-cover"
           />
         </div>
@@ -192,7 +271,7 @@ const Contact = () => {
                     </div>
                     <h2 className="text-3xl font-serif font-bold text-slate-900">Thank you.</h2>
                     <p className="text-lg text-slate-700 leading-relaxed max-w-md mx-auto font-normal text-justify md:text-center">
-                      We've received your enquiry and will be in touch within two working days. 
+                      We've received your enquiry and will message you on WhatsApp within two working days. 
                       We look forward to meeting your family.
                     </p>
                     <button 
@@ -204,115 +283,114 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <motion.div key="form" exit={{ opacity: 0, y: -20 }}>
-                    <h2 className="text-2xl font-serif font-bold text-slate-900 mb-10">Enquiry Form</h2>
-                    <form onSubmit={handleSubmit} className="space-y-8">
-                      {/* FormSubmit.co Config */}
-                      <input type="hidden" name="_captcha" value="false" />
-                      <input type="hidden" name="_template" value="table" />
-                      
+                    <h2 className="text-2xl font-serif font-bold text-slate-900 mb-2">Enquiry Form</h2>
+                    <p className="text-slate-600 mb-10">A few taps and we'll get back to you on WhatsApp.</p>
+                    <form onSubmit={handleSubmit} className="space-y-9" noValidate>
+                      <ChipGroup
+                        label="Your child is…"
+                        options={CHILD_OPTIONS}
+                        value={choices.child_stage}
+                        onChange={(v) => choose('child_stage', v)}
+                      />
+
+                      <ChipGroup
+                        label="What would you like?"
+                        options={WANT_OPTIONS}
+                        value={choices.request}
+                        onChange={(v) => choose('request', v)}
+                      />
+
+                      {choices.request === 'Visit the campus' && (
+                        <ChipGroup
+                          label="When could you visit?"
+                          options={VISIT_OPTIONS}
+                          value={choices.visit_when}
+                          onChange={(v) => choose('visit_when', v)}
+                          optional
+                        />
+                      )}
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Parent Name */}
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-black uppercase tracking-wider">Parent / Guardian Name *</label>
+                          <label htmlFor="parent_name" className="text-sm font-bold text-black uppercase tracking-wider">Your name</label>
                           <input
+                            id="parent_name"
                             required
                             name="parent_name"
                             type="text"
-                            placeholder="Your full name"
+                            autoComplete="name"
+                            placeholder="Parent / guardian name"
                             className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
                           />
                         </div>
-                        {/* Child Name */}
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-black uppercase tracking-wider">Child's Name *</label>
-                          <input 
-                            required
-                            name="child_name"
-                            type="text" 
-                            placeholder="Your child's name"
-  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                          />
-                        </div>
-                        {/* Child Age */}
-                        <div className="space-y-2">
-                          <label className="text-sm font-bold text-black uppercase tracking-wider">Child's Age *</label>
-                          <input 
-                            required
-                            name="child_age"
-                            type="number" 
-                            placeholder="Age in years"
-  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                          />
-                        </div>
-                        {/* Phone Number */}
-                        <div className="space-y-2">
-                          <label className="text-sm font-bold text-black uppercase tracking-wider">Phone Number *</label>
-                          <input 
+                          <label htmlFor="phone_number" className="text-sm font-bold text-black uppercase tracking-wider">WhatsApp number</label>
+                          <input
+                            id="phone_number"
                             required
                             name="phone_number"
-                            type="tel" 
-                            placeholder="We'll WhatsApp you here"
-  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                            type="tel"
+                            inputMode="tel"
+                            autoComplete="tel"
+                            placeholder="We'll message you here"
+                            className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
                           />
                         </div>
                       </div>
 
-                      {/* Email */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-black uppercase tracking-wider">Email Address (optional)</label>
-                        <input 
-                          name="email"
-                          type="email" 
-                          placeholder="your@email.com"
-  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                        />
+                      <ChipGroup
+                        label="How did you hear about us?"
+                        options={SOURCE_OPTIONS}
+                        value={choices.heard_from}
+                        onChange={(v) => choose('heard_from', v)}
+                      />
+
+                      {/* Optional extras stay out of the way until asked for */}
+                      <div className="space-y-6">
+                        <div className="flex flex-wrap gap-6 text-sm font-bold text-purple-600">
+                          {!showEmail && (
+                            <button type="button" onClick={() => setShowEmail(true)} className="hover:underline">
+                              + Add email
+                            </button>
+                          )}
+                          {!showNote && (
+                            <button type="button" onClick={() => setShowNote(true)} className="hover:underline">
+                              + Add a note
+                            </button>
+                          )}
+                        </div>
+                        {showEmail && (
+                          <div className="space-y-2">
+                            <label htmlFor="email" className="text-sm font-bold text-black uppercase tracking-wider">Email (optional)</label>
+                            <input
+                              id="email"
+                              name="email"
+                              type="email"
+                              autoComplete="email"
+                              placeholder="your@email.com"
+                              className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                            />
+                          </div>
+                        )}
+                        {showNote && (
+                          <div className="space-y-2">
+                            <label htmlFor="message" className="text-sm font-bold text-black uppercase tracking-wider">Note (optional)</label>
+                            <textarea
+                              id="message"
+                              name="message"
+                              rows="3"
+                              placeholder="Any questions or anything you'd like us to know"
+                              className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                            ></textarea>
+                          </div>
+                        )}
                       </div>
 
-                      {/* Programme Dropdown */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-black uppercase tracking-wider">Programme of Interest *</label>
-                        <select 
-                          required
-                          name="programme"
-                          className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-100 focus:border-purple-500 outline-none transition-all text-lg cursor-pointer"
-                        >
-                          <option value="">Select a programme</option>
-                          <option value="kg">KG (Ages 3 to 5)</option>
-                          <option value="lower">Lower Elementary (Grades 1 to 3)</option>
-                          <option value="upper">Upper Elementary (Grades 4 to 6)</option>
-                          <option value="not-sure">Not sure yet</option>
-                        </select>
-                      </div>
+                      {formError && (
+                        <p role="alert" className="text-sm font-medium text-red-600">{formError}</p>
+                      )}
 
-                      {/* Source Dropdown */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-black uppercase tracking-wider">How did you hear about us? *</label>
-                        <select 
-                          required
-                          name="referral_source"
-                          className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-100 focus:border-purple-500 outline-none transition-all text-lg cursor-pointer"
-                        >
-                          <option value="">Choose an option</option>
-                          <option value="word">Word of mouth</option>
-                          <option value="google">Google Search</option>
-                          <option value="instagram">Instagram</option>
-                          <option value="drive">Drive-by</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-
-                      {/* Message */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-black uppercase tracking-wider">Message (optional)</label>
-                        <textarea 
-                          name="message"
-                          rows="3"
-                          placeholder="Any questions or anything you'd like us to know"
-  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                        ></textarea>
-                      </div>
-
-                      <button 
+                      <button
                         type="submit"
                         disabled={formStatus === 'sending'}
                         className="w-full bg-slate-900 hover:bg-purple-600 text-white font-bold py-6 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group disabled:opacity-50"
@@ -326,6 +404,16 @@ const Contact = () => {
                           </>
                         )}
                       </button>
+
+                      <a
+                        href={WHATSAPP_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full border-2 border-green-600 text-green-700 hover:bg-green-50 font-bold py-4 rounded-2xl transition-colors flex items-center justify-center gap-3"
+                      >
+                        <MessageSquare size={18} />
+                        Prefer WhatsApp? Chat with us
+                      </a>
                     </form>
                   </motion.div>
                 )}

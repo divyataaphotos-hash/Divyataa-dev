@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import schoolImg from '../assets/school2.jpg';
+import schoolImg from '../assets/divyataa-campus-building-side-view.jpg';
 
 const WelcomeSection = () => {
   return (
@@ -53,7 +53,7 @@ const WelcomeSection = () => {
         >
           <img loading="lazy" decoding="async"
   src={schoolImg}
-  alt="Divyataa School Campus"
+  alt="The Divyataa International School campus building in Tirupur"
   className="w-full h-[450px] md:h-[550px] lg:h-[454px] object-cover rounded-[30px] md:rounded-[40px] shadow-xl"
 />
         </motion.div>

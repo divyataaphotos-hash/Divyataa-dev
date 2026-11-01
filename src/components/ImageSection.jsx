@@ -1,22 +1,22 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import campusImg from '../Website/Gallery Page/Campus/8f8e94c0-49a5-4fed-bdb4-d25b3a92bc38 (1).jpg';
-import annualImg from '../Website/Gallery Page/Annual Day/5C7A9162.JPG';
-import classImg1 from '../Website/Gallery Page/Classsroom Life/018A8914.JPG';
-import eventImg1 from '../Website/Gallery Page/Events & Festivals/c1435586-65a1-4296-842c-9f6c0bf5f484.jpg';
-import fieldImg from '../assets/fieldtrip1.jpg';
-import extraImg from '../assets/extracurr1.jpg';
-import eventImg from '../assets/image (13).jpg';
+import campusImg from '../Website/Gallery Page/Campus/architectural-rendering-divyataa-school-building-tirupur.jpg';
+import annualImg from '../Website/Gallery Page/Annual Day/children-butterfly-wings-performing-nature-dance.jpg';
+import classImg1 from '../Website/Gallery Page/Classsroom Life/montessori-guide-leading-circle-time-children.jpg';
+import eventImg1 from '../Website/Gallery Page/Events & Festivals/children-making-flower-pookolam-together-floor.jpg';
+import fieldImg from '../assets/road-safety-game-field-trip.jpg';
+import extraImg from '../assets/karate-championship-trophies-divyataa.jpg';
+import eventImg from '../assets/girls-festive-traditional-dress-celebration.jpg';
 
 const ImageSection = () => {
   const images = [
-    campusImg,
-    annualImg,
-    classImg1,
-    eventImg1,
-    fieldImg,
-    extraImg,
-    eventImg,
+    { src: campusImg, alt: 'Architectural rendering of the new Divyataa International School building in Tirupur' },
+    { src: annualImg, alt: 'Children in butterfly wings performing a nature dance at the Divyataa annual day' },
+    { src: classImg1, alt: 'A Montessori guide leading circle time with children at Divyataa, Tirupur' },
+    { src: eventImg1, alt: 'Children making a flower pookolam together at a school celebration' },
+    { src: fieldImg, alt: 'Divyataa students at a road safety awareness game on a field trip' },
+    { src: extraImg, alt: 'Divyataa karate students with their championship trophies' },
+    { src: eventImg, alt: 'Girls in colourful traditional dress at a Divyataa festival celebration' },
   ];
 
   const [current, setCurrent] = useState(0);
@@ -38,8 +38,8 @@ const ImageSection = () => {
           <AnimatePresence mode="wait">
             <motion.img
               key={current}
-              src={images[current]}
-              alt="Divyataa School"
+              src={images[current].src}
+              alt={images[current].alt}
               className="absolute inset-0 w-full h-full object-cover"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

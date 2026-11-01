@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import silambam2Img from '../assets/silambam 2.webp';
-import childrenLearningImg from '../assets/children-learning-C8YlCPHq.webp';
-import whyMontessoriImg from '../assets/class1.JPG';
+import silambam2Img from '../assets/silambam-practice-school-courtyard.webp';
+import childrenLearningImg from '../assets/children-learning-geography-globe.webp';
+import whyMontessoriImg from '../assets/montessori-language-materials-lesson.jpg';
 import materialsImg from '../assets/placeholder-materials-D6uKM2bM.webp';
-import primaryCasaImg from '../assets/Primary Montessori Casa.JPG';
+import primaryCasaImg from '../assets/montessori-casa-one-on-one-lesson.jpg';
 import elementaryImg from '../assets/curriculam/elementary-grades.webp';
-import elementaryCuriosityImg from '../assets/study.JPG';
+import elementaryCuriosityImg from '../assets/montessori-guide-circle-time.jpg';
 import outdoorImg from '../assets/experience/placeholder-outdoor-BzcKU8Ud.webp';
 import kgClassroomImg from '../assets/curriculam/kg-classroom.webp';
 import { Link } from 'react-router-dom';
-import heroBg from '../Website/Gallery Page/Events & Festivals/IMG_4317.JPG';
-import beyondClassroomBg from '../assets/silambam.webp';
+import heroBg from '../Website/Gallery Page/Events & Festivals/whole-school-gathered-entrance-group-photo.jpg';
+import beyondClassroomBg from '../assets/silambam-training-outdoors.webp';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -59,7 +59,7 @@ const Curriculum = () => {
   <div className="absolute inset-0">
     <img fetchPriority="high"
       src={heroBg}
-      alt="Curriculum Background"
+      alt="Divyataa students and teachers gathered at the school entrance"
       className="w-full h-full object-cover"
     />
 
@@ -121,7 +121,7 @@ const Curriculum = () => {
               transition={{ delay: 0.2 }}
               className="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3]"
             >
-              <img loading="lazy" decoding="async" src={whyMontessoriImg} alt="Why Montessori" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={whyMontessoriImg} alt="A Montessori guide giving a child a lesson with language materials on a floor mat" className="w-full h-full object-cover" />
             </motion.div>
           </div>
 
@@ -168,7 +168,7 @@ const Curriculum = () => {
               className="order-1 lg:order-2"
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/5">
-                <img loading="lazy" decoding="async" src={primaryCasaImg} alt="Primary Montessori: Casa" className="w-full h-auto" />
+                <img loading="lazy" decoding="async" src={primaryCasaImg} alt="A guide giving a one-on-one lesson in the Montessori Casa classroom for ages 3 to 5" className="w-full h-auto" />
               </div>
             </motion.div>
           </div>
@@ -208,7 +208,7 @@ const Curriculum = () => {
               <div className="rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
 <img loading="lazy" decoding="async"
   src={elementaryCuriosityImg}
-  alt="Elementary: Curiosity Unleashed"
+  alt="Elementary children in a Montessori circle time discussion with their guide"
   className="w-full h-[520px] object-cover"
 />              </div>
             </motion.div>

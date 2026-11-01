@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import schoolImg from '../assets/school.webp';
-import studyImg from '../assets/study.JPG';
-import schoolLogo from '../assets/logo.webp';
-import mottoOverlay from '../assets/fieldtrip2.jpg';
-import yourImage from '../assets/Montessori-Pedagogy.jpeg';
-import founderImg from '../assets/founder.jpg';
-import coFounderImg from '../assets/co-founder.jpg';
+import studyImg from '../assets/montessori-guide-circle-time.jpg';
+import schoolLogo from '../assets/divyataa-logo-wisdom-integrity-compassion.webp';
+import mottoOverlay from '../assets/field-trip-covai-flower-show.jpg';
+import yourImage from '../assets/maria-montessori-portrait.jpeg';
+import founderImg from '../assets/gi-sudakar-chairman-founder-divyataa.jpg';
+import coFounderImg from '../assets/kavitha-sudakar-principal-divyataa.jpg';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -30,7 +30,7 @@ const AboutUs = () => {
 <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
   <img fetchPriority="high"
     src={mottoOverlay}
-    alt=""
+    alt="Divyataa students on a field trip to the Covai flower show"
     className="w-full h-full object-cover"
   />
 </div>
@@ -96,7 +96,7 @@ const AboutUs = () => {
                   <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl shrink-0 overflow-hidden shadow-xl">
   <img loading="lazy" decoding="async"
     src={founderImg}
-    alt="Gi. Sudakar"
+    alt="Gi. Sudakar, Chairman and Founder of Divyataa International School"
     className="w-full h-full object-cover"
   />
 </div>
@@ -134,7 +134,7 @@ const AboutUs = () => {
                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl shrink-0 overflow-hidden shadow-xl">
   <img loading="lazy" decoding="async"
     src={coFounderImg}
-    alt="Kavitha Sudakar"
+    alt="Kavitha Sudakar, Principal and Co-Founder of Divyataa International School"
     className="w-full h-full object-cover"
   />
 </div>
@@ -221,7 +221,7 @@ const AboutUs = () => {
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/5">
                 <img loading="lazy" decoding="async"
                   src={studyImg}
-                  alt="Children studying at Divyataa"
+                  alt="A Montessori guide leading circle time with children at Divyataa"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -327,7 +327,7 @@ className="
   <div className="flex flex-1 items-center justify-center">
     <img loading="lazy" decoding="async"
       src={schoolLogo}
-      alt="Divyataa Logo"
+      alt="Divyataa International School logo: Wisdom, Integrity, Compassion"
       className="
         w-[85%]
         max-w-[260px]
@@ -468,7 +468,7 @@ className="
     <div className="flex justify-center">
       <img loading="lazy" decoding="async"
   src={yourImage}
-  alt="Maria Montessori"
+  alt="Portrait of Dr. Maria Montessori, founder of the Montessori method"
   className="
     w-36 h-36 
     md:w-48 md:h-48 

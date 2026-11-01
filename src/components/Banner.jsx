@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/hero-children-B1qFxMJF.webp';
+import heroImg from '../assets/happy-children-divyataa-montessori-tirupur.webp';
 
 const Banner = () => {
   return (
@@ -11,7 +11,7 @@ const Banner = () => {
       {/* Full-bleed background image */}
       <img fetchPriority="high"
         src={heroImg}
-        alt="Divyataa children"
+        alt="Happy children at Divyataa International School, a pure Montessori school in Tirupur"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
