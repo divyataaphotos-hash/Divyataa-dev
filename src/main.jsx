@@ -1,8 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { inject } from '@vercel/analytics'
 import './styles/index.css'
 import App from './App.jsx'
+
+// Vercel Web Analytics: cookie-free page views (enable it in the Vercel
+// project's Analytics tab). Only runs in the browser, never in prerender.
+inject()
 
 const app = (
   <StrictMode>

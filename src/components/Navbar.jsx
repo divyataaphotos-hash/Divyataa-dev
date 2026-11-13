@@ -36,8 +36,9 @@ const Navbar = () => {
   const isExperiencePage = location.pathname === '/campus';
   const isCurriculumPage = location.pathname === '/curriculum';
   const isGalleryPage = location.pathname === '/gallery';
+  const isMontessoriPage = location.pathname === '/montessori-school-tirupur';
 
-  const isInnerPage = isAboutPage || isContactPage || isExperiencePage || isCurriculumPage || isGalleryPage;
+  const isInnerPage = isAboutPage || isContactPage || isExperiencePage || isCurriculumPage || isGalleryPage || isMontessoriPage;
 
   return (
     <>
@@ -115,6 +116,8 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
               className={`lg:hidden p-2 rounded-xl transition-colors ${
                 (isScrolled || isInnerPage || isMobileMenuOpen) ? 'hover:bg-slate-100' : 'hover:bg-white/10'
               }`}

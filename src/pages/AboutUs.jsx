@@ -227,7 +227,7 @@ const AboutUs = () => {
               </div>
               {/* Floating Name Card */}
               <div className="absolute -bottom-6 -left-4 md:-left-6 bg-purple-600 text-white p-5 md:p-6 rounded-2xl shadow-xl max-w-[260px]">
-                <h4 className="text-lg font-serif mb-1">Divyataa</h4>
+                <h3 className="text-lg font-serif mb-1">Divyataa</h3>
                 <p className="text-xs md:text-sm opacity-90 leading-relaxed italic">
                   "The name means divine radiance. It is the light we see in every child who walks through our doors."
                 </p>

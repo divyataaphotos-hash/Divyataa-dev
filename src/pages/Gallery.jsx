@@ -326,7 +326,8 @@ const Gallery = () => {
       </section>
 
       {/* Media Grid */}
-      <section className="py-20 px-6 max-w-7xl mx-auto min-h-[600px]">
+      <section className="py-20 px-6 max-w-7xl mx-auto min-h-[600px]" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading" className="sr-only">Photos and videos</h2>
         <motion.div
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
         >

@@ -55,12 +55,14 @@ const ImageSection = () => {
           <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
           {/* Navigation Dots */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-4 z-20">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`transition-all duration-300 rounded-full ${
+                aria-label={`Show photo ${index + 1}`}
+                aria-current={current === index}
+                className={`relative before:absolute before:-inset-2 before:content-[''] transition-all duration-300 rounded-full ${
                   current === index
                     ? "w-8 h-2 bg-white"
                     : "w-2 h-2 bg-white/50 hover:bg-white/80"

@@ -136,9 +136,9 @@ const Testimonials = () => {
                     
                     <div className="flex items-center gap-5 mt-auto">
                       <div>
-  <h4 className="font-bold text-slate-900 text-lg md:text-xl leading-none">
+  <h3 className="font-bold text-slate-900 text-lg md:text-xl leading-none">
     {testimonial.author}
-  </h4>
+  </h3>
 
 
   <p className="text-[#7208b3] font-medium text-xs md:text-sm uppercase tracking-wider mt-2">
@@ -156,12 +156,14 @@ const Testimonials = () => {
           <div className="absolute top-1/2 -translate-y-1/2 -left-2 -right-2 md:-left-12 md:-right-12 flex justify-between pointer-events-none">
             <button
               onClick={prevSlide}
+              aria-label="Previous testimonial"
               className="pointer-events-auto w-10 h-10 md:w-16 md:h-16 rounded-full bg-white border border-slate-100 shadow-2xl flex items-center justify-center text-slate-400 hover:text-[#7208b3] hover:border-purple-200 transition-all hover:scale-110 active:scale-95 group"
             >
               <ChevronLeft className="w-5 h-5 md:w-8 md:h-8 group-hover:-translate-x-0.5 transition-transform" />
             </button>
             <button
               onClick={nextSlide}
+              aria-label="Next testimonial"
               className="pointer-events-auto w-10 h-10 md:w-16 md:h-16 rounded-full bg-white border border-slate-100 shadow-2xl flex items-center justify-center text-slate-400 hover:text-[#7208b3] hover:border-purple-200 transition-all hover:scale-110 active:scale-95 group"
             >
               <ChevronRight className="w-5 h-5 md:w-8 md:h-8 group-hover:translate-x-0.5 transition-transform" />
@@ -170,12 +172,12 @@ const Testimonials = () => {
         </div>
 
         {/* Pagination indicators */}
-        <div className="flex justify-center gap-3 mt-12">
+        <div className="flex justify-center gap-4 mt-12">
           {Array.from({ length: testimonials.length - visibleCount + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all duration-500 ${
+              className={`relative before:absolute before:-inset-2 before:content-[''] h-2 rounded-full transition-all duration-500 ${
                 index === currentIndex ? 'w-10 bg-[#7208b3]' : 'w-2 bg-purple-100 hover:bg-purple-200'
               }`}
               aria-label={`Go to slide ${index + 1}`}

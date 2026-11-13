@@ -224,7 +224,7 @@ const Curriculum = () => {
               </p>
               
               <div className="space-y-6">
-                <h4 className="text-xl font-bold text-slate-900">The Five Great Lessons</h4>
+                <h3 className="text-xl font-bold text-slate-900">The Five Great Lessons</h3>
                 <ul className="space-y-4">
                   {[
                     ['The Story of the Universe', 'how matter, energy, stars, and planets came to be'],
@@ -302,7 +302,7 @@ const Curriculum = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white/90 backdrop-blur-md p-10 rounded-[2.5rem] shadow-xl border border-white/20"
               >
-                <h4 className="text-purple-600 font-bold uppercase text-xs tracking-widest mb-6">{group.category}</h4>
+                <h3 className="text-purple-600 font-bold uppercase text-xs tracking-widest mb-6">{group.category}</h3>
                 <ul className="space-y-4">
                   {group.items.map((item, j) => (
                     <li key={j} className="text-slate-900 font-medium flex items-start gap-4">

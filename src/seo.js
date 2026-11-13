@@ -29,9 +29,9 @@ export const ROUTES = {
     ogDescription: 'How pure Montessori works at Divyataa, from Casa to Upper Elementary.',
   },
   '/campus': {
-    title: 'Our Campus on Angeripalayam Road, Tirupur | Divyataa',
+    title: 'Montessori School Campus in Tirupur | Divyataa',
     description:
-      'Calm, ordered Montessori classrooms and outdoor spaces where children dig, climb and observe. Visit us at #76/6, Angeripalayam Main Road, Tirupur.',
+      'See where children learn at Divyataa: calm Montessori classrooms, open outdoor spaces and our building on Angeripalayam Main Road, Tirupur. Book a morning visit.',
     ogTitle: 'A Place Made for Children · Divyataa Campus',
     ogDescription: 'Every element of the environment is a decision made in service of the child.',
   },
@@ -49,6 +49,14 @@ export const ROUTES = {
     ogTitle: "We'd Love to Meet Your Family · Divyataa",
     ogDescription: 'The first step is a conversation, or better, a morning visit.',
   },
+};
+
+ROUTES['/montessori-school-tirupur'] = {
+  title: 'Montessori School & Preschool in Tirupur | Divyataa',
+  description:
+    'Divyataa is a pure Montessori school and preschool in Tirupur for ages 3 to Grade 6: prepared classrooms, trained guides, mixed ages. Book a campus visit.',
+  ogTitle: 'Montessori School & Preschool in Tirupur · Divyataa',
+  ogDescription: 'A pure Montessori school on Angeripalayam Main Road, Tirupur, for children from KG to Grade 6.',
 };
 
 export const NOT_FOUND = {
