@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Image from '../Website/Gallery Page/Field trip/road-safety-awareness-session-students.jpg';
@@ -20,14 +20,11 @@ const isValidPhone = (value) => {
   return digits.length >= 10 && digits.length <= 12;
 };
 
-// One-tap answer chips used by the enquiry form.
-const ChipGroup = ({ label, options, value, onChange, optional = false }) => (
-  <fieldset className="space-y-3">
-    <legend className="text-sm font-bold text-black uppercase tracking-wider mb-3">
-      {label}
-      {optional && <span className="ml-2 normal-case tracking-normal font-normal text-slate-500">(optional)</span>}
-    </legend>
-    <div className="flex flex-wrap gap-2.5">
+// One question per step: tapping an answer moves the form on by itself.
+const StepChoices = ({ question, options, value, onPick }) => (
+  <fieldset>
+    <legend className="text-2xl md:text-3xl font-serif font-bold text-slate-900 mb-6">{question}</legend>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
       {options.map((option) => {
         const selected = value === option;
         return (
@@ -35,11 +32,11 @@ const ChipGroup = ({ label, options, value, onChange, optional = false }) => (
             key={option}
             type="button"
             aria-pressed={selected}
-            onClick={() => onChange(option)}
-            className={`px-4 py-2.5 rounded-full border text-sm md:text-base font-medium transition-colors ${
+            onClick={() => onPick(option)}
+            className={`text-left px-5 py-4 rounded-2xl border-2 text-base md:text-lg font-medium transition-colors ${
               selected
                 ? 'bg-purple-600 border-purple-600 text-white shadow-md shadow-purple-200'
-                : 'bg-white border-slate-200 text-slate-700 hover:border-purple-300 hover:bg-purple-50'
+                : 'bg-white border-slate-200 text-slate-800 hover:border-purple-300 hover:bg-purple-50'
             }`}
           >
             {option}
@@ -58,14 +55,57 @@ const Contact = () => {
   }, []);
 
   const [choices, setChoices] = useState({ child_stage: '', request: '', visit_when: '', heard_from: '' });
-  const [showEmail, setShowEmail] = useState(false);
   const [showNote, setShowNote] = useState(false);
   const [formError, setFormError] = useState('');
+  const [step, setStep] = useState(0);
+  const [dir, setDir] = useState(1);
+  const nameRef = useRef(null);
 
-  // Tapping a selected chip again clears it.
-  const choose = (field, value) => {
-    setChoices((prev) => ({ ...prev, [field]: prev[field] === value ? '' : value }));
+  // The questions, one per step. The visit step only appears for campus visits.
+  const steps = [
+    { key: 'child_stage', question: 'Your child is…', options: CHILD_OPTIONS },
+    { key: 'request', question: 'What would you like?', options: WANT_OPTIONS },
+    ...(choices.request === 'Visit the campus'
+      ? [{ key: 'visit_when', question: 'When could you visit?', options: VISIT_OPTIONS }]
+      : []),
+    { key: 'heard_from', question: 'How did you hear about us?', options: SOURCE_OPTIONS },
+    { key: 'contact' },
+  ];
+  const at = Math.min(step, steps.length - 1);
+  const current = steps[at];
+
+  const goBack = () => {
+    setDir(-1);
+    setStep(Math.max(0, at - 1));
     setFormError('');
+  };
+
+  // Record the answer, then move on after a short beat so the choice is seen.
+  const pick = (field, value) => {
+    setChoices((prev) => ({
+      ...prev,
+      [field]: value,
+      ...(field === 'request' && value !== 'Visit the campus' && { visit_when: '' }),
+    }));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(() => {
+      setDir(1);
+      setStep((s) => s + 1);
+    }, reduced ? 0 : 280);
+  };
+
+  const resetForm = () => {
+    setFormStatus('idle');
+    setStep(0);
+    setShowNote(false);
+    setChoices({ child_stage: '', request: '', visit_when: '', heard_from: '' });
+  };
+
+  // Put the cursor in the name field once the last step has slid in.
+  const focusName = () => {
+    if (current.key === 'contact' && nameRef.current) {
+      nameRef.current.focus({ preventScroll: true });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -73,14 +113,11 @@ const Contact = () => {
     const form = e.target;
     const phone = form.phone_number;
     const missing = [
-      !choices.child_stage && "your child's class",
-      !choices.request && 'what you would like',
       !form.parent_name.value.trim() && 'your name',
       !isValidPhone(phone.value) && 'a valid WhatsApp number',
-      !choices.heard_from && 'how you heard about us',
     ].filter(Boolean);
     if (missing.length) {
-      setFormError(`Please add ${missing.join(', ')}.`);
+      setFormError(`Please add ${missing.join(' and ')}.`);
       return;
     }
     setFormStatus('sending');
@@ -93,7 +130,6 @@ const Contact = () => {
       would_like: choices.request,
       ...(choices.request === 'Visit the campus' && { visit_when: choices.visit_when || 'Not specified' }),
       heard_from: choices.heard_from,
-      ...(data.email && { email: data.email }),
       ...(data.message && { message: data.message }),
     };
 
@@ -275,7 +311,7 @@ const Contact = () => {
                       We look forward to meeting your family.
                     </p>
                     <button 
-                      onClick={() => setFormStatus('idle')}
+                      onClick={resetForm}
                       className="text-purple-600 font-bold hover:underline pt-4"
                     >
                       Send another enquiry
@@ -283,137 +319,140 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <motion.div key="form" exit={{ opacity: 0, y: -20 }}>
-                    <h2 className="text-2xl font-serif font-bold text-slate-900 mb-2">Enquiry Form</h2>
-                    <p className="text-slate-600 mb-10">A few taps and we'll get back to you on WhatsApp.</p>
-                    <form onSubmit={handleSubmit} className="space-y-9" noValidate>
-                      <ChipGroup
-                        label="Your child is…"
-                        options={CHILD_OPTIONS}
-                        value={choices.child_stage}
-                        onChange={(v) => choose('child_stage', v)}
-                      />
+                    <h2 className="text-sm font-bold text-purple-700 uppercase tracking-widest mb-6">Enquiry form</h2>
 
-                      <ChipGroup
-                        label="What would you like?"
-                        options={WANT_OPTIONS}
-                        value={choices.request}
-                        onChange={(v) => choose('request', v)}
-                      />
-
-                      {choices.request === 'Visit the campus' && (
-                        <ChipGroup
-                          label="When could you visit?"
-                          options={VISIT_OPTIONS}
-                          value={choices.visit_when}
-                          onChange={(v) => choose('visit_when', v)}
-                          optional
-                        />
+                    {/* Progress */}
+                    <div className="flex items-center gap-2 text-sm text-slate-500 mb-3 min-h-9">
+                      {at > 0 && (
+                        <button
+                          type="button"
+                          onClick={goBack}
+                          aria-label="Back"
+                          className="-ml-2 p-2 rounded-full text-slate-700 hover:bg-slate-100 hover:text-purple-700 transition-colors"
+                        >
+                          <ArrowLeft size={18} />
+                        </button>
                       )}
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="space-y-2">
-                          <label htmlFor="parent_name" className="text-sm font-bold text-black uppercase tracking-wider">Your name</label>
-                          <input
-                            id="parent_name"
-                            required
-                            name="parent_name"
-                            type="text"
-                            autoComplete="name"
-                            placeholder="Parent / guardian name"
-                            className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <label htmlFor="phone_number" className="text-sm font-bold text-black uppercase tracking-wider">WhatsApp number</label>
-                          <input
-                            id="phone_number"
-                            required
-                            name="phone_number"
-                            type="tel"
-                            inputMode="tel"
-                            autoComplete="tel"
-                            placeholder="We'll message you here"
-                            className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                          />
-                        </div>
-                      </div>
-
-                      <ChipGroup
-                        label="How did you hear about us?"
-                        options={SOURCE_OPTIONS}
-                        value={choices.heard_from}
-                        onChange={(v) => choose('heard_from', v)}
+                      <span className="font-semibold text-slate-700">Step {at + 1} of {steps.length}</span>
+                      <span className="ml-auto">Takes 30 seconds</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden mb-10" aria-hidden="true">
+                      <div
+                        className="h-full bg-purple-600 rounded-full transition-all duration-500"
+                        style={{ width: `${((at + 1) / steps.length) * 100}%` }}
                       />
+                    </div>
 
-                      {/* Optional extras stay out of the way until asked for */}
-                      <div className="space-y-6">
-                        <div className="flex flex-wrap gap-6 text-sm font-bold text-purple-600">
-                          {!showEmail && (
-                            <button type="button" onClick={() => setShowEmail(true)} className="hover:underline">
-                              + Add email
-                            </button>
-                          )}
-                          {!showNote && (
-                            <button type="button" onClick={() => setShowNote(true)} className="hover:underline">
-                              + Add a note
-                            </button>
-                          )}
-                        </div>
-                        {showEmail && (
-                          <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-bold text-black uppercase tracking-wider">Email (optional)</label>
-                            <input
-                              id="email"
-                              name="email"
-                              type="email"
-                              autoComplete="email"
-                              placeholder="your@email.com"
-                              className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                    <form onSubmit={handleSubmit} noValidate>
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                          key={current.key}
+                          initial={{ opacity: 0, x: dir * 40 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: dir * -40 }}
+                          transition={{ duration: 0.2 }}
+                          onAnimationComplete={focusName}
+                        >
+                          {current.key !== 'contact' ? (
+                            <StepChoices
+                              question={current.question}
+                              options={current.options}
+                              value={choices[current.key]}
+                              onPick={(v) => pick(current.key, v)}
                             />
-                          </div>
-                        )}
-                        {showNote && (
-                          <div className="space-y-2">
-                            <label htmlFor="message" className="text-sm font-bold text-black uppercase tracking-wider">Note (optional)</label>
-                            <textarea
-                              id="message"
-                              name="message"
-                              rows="3"
-                              placeholder="Any questions or anything you'd like us to know"
-                              className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
-                            ></textarea>
-                          </div>
-                        )}
+                          ) : (
+                            <div className="space-y-8">
+                              <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-900">Where can we reach you?</h3>
+                              <div className="space-y-2">
+                                <label htmlFor="parent_name" className="text-sm font-bold text-black uppercase tracking-wider">Your name</label>
+                                <input
+                                  ref={nameRef}
+                                  id="parent_name"
+                                  required
+                                  name="parent_name"
+                                  type="text"
+                                  autoComplete="name"
+                                  enterKeyHint="next"
+                                  placeholder="Parent / guardian name"
+                                  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <label htmlFor="phone_number" className="text-sm font-bold text-black uppercase tracking-wider">WhatsApp number</label>
+                                <input
+                                  id="phone_number"
+                                  required
+                                  name="phone_number"
+                                  type="tel"
+                                  inputMode="tel"
+                                  autoComplete="tel"
+                                  enterKeyHint="send"
+                                  placeholder="We'll message you here"
+                                  className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                                />
+                              </div>
+
+                              {showNote ? (
+                                <div className="space-y-2">
+                                  <label htmlFor="message" className="text-sm font-bold text-black uppercase tracking-wider">Note (optional)</label>
+                                  <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="3"
+                                    placeholder="Any questions or anything you'd like us to know"
+                                    className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-purple-500 outline-none transition-all duration-300 placeholder:text-purple-300 text-lg"
+                                  ></textarea>
+                                </div>
+                              ) : (
+                                <button type="button" onClick={() => setShowNote(true)} className="text-sm font-bold text-purple-600 hover:underline">
+                                  + Add a note
+                                </button>
+                              )}
+
+                              {formError && (
+                                <div role="alert" className="text-sm font-medium text-red-600">{formError}</div>
+                              )}
+
+                              <button
+                                type="submit"
+                                disabled={formStatus === 'sending'}
+                                className="w-full bg-slate-900 hover:bg-purple-600 text-white font-bold py-6 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group disabled:opacity-50"
+                              >
+                                {formStatus === 'sending' ? (
+                                  <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                ) : (
+                                  <>
+                                    Send Enquiry
+                                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                          )}
+                        </motion.div>
+                      </AnimatePresence>
+
+                      {/* Quiet way out for parents who'd rather just talk */}
+                      <div className="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-x-2 gap-y-1.5 text-sm text-slate-500">
+                        <span className="inline-flex items-center gap-2">
+                        Rather talk?
+                        <a
+                          href={WHATSAPP_LINK}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 font-semibold text-slate-800 hover:text-[#128C7E] transition-colors"
+                        >
+                          <svg viewBox="0 0 24 24" fill="#25D366" className="w-4 h-4" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                          Chat on WhatsApp
+                        </a>
+                        </span>
+                        <span>
+                          or call{' '}
+                          <a href="tel:+919751112300" className="font-semibold text-slate-800 hover:text-purple-700 transition-colors">
+                            +91 97511 12300
+                          </a>
+                        </span>
                       </div>
-
-                      {formError && (
-                        <p role="alert" className="text-sm font-medium text-red-600">{formError}</p>
-                      )}
-
-                      <button
-                        type="submit"
-                        disabled={formStatus === 'sending'}
-                        className="w-full bg-slate-900 hover:bg-purple-600 text-white font-bold py-6 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group disabled:opacity-50"
-                      >
-                        {formStatus === 'sending' ? (
-                          <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        ) : (
-                          <>
-                            Send Enquiry
-                            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                          </>
-                        )}
-                      </button>
-
-                      <a
-                        href={WHATSAPP_LINK}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full border-2 border-green-600 text-green-700 hover:bg-green-50 font-bold py-4 rounded-2xl transition-colors flex items-center justify-center gap-3"
-                      >
-                        <MessageSquare size={18} />
-                        Prefer WhatsApp? Chat with us
-                      </a>
                     </form>
                   </motion.div>
                 )}
