@@ -16,3 +16,4 @@ export function render(url) {
 }
 
 export { ROUTES, NOT_FOUND, SITE_URL, OG_IMAGE } from './seo.js'
+export { posts } from './blog/posts.js'

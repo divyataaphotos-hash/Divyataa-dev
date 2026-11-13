@@ -6,6 +6,8 @@ import Experience from './pages/Experience';
 import Curriculum from './pages/Curriculum';
 import Gallery from './pages/Gallery';
 import MontessoriTirupur from './pages/MontessoriTirupur';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -25,6 +27,8 @@ function App() {
         <Route path="/curriculum" element={<Curriculum />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/montessori-school-tirupur" element={<MontessoriTirupur />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

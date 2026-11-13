@@ -1,6 +1,8 @@
 // Per-route <head> data. Used by the prerender script (static HTML) and by
 // <Seo /> on the client so titles stay correct during in-app navigation.
 
+import { posts } from './blog/posts.js';
+
 export const SITE_URL = 'https://www.divyataa.in';
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
@@ -58,6 +60,28 @@ ROUTES['/montessori-school-tirupur'] = {
   ogTitle: 'Montessori School & Preschool in Tirupur · Divyataa',
   ogDescription: 'A pure Montessori school on Angeripalayam Main Road, Tirupur, for children from KG to Grade 6.',
 };
+
+// Blog: the list page appears once there is at least one post; each post gets
+// its own entry (drafts only exist on previews and are kept out of Google).
+if (posts.length) {
+  ROUTES['/blog'] = {
+    title: 'Parent Guides & Stories | Divyataa Montessori Blog, Tirupur',
+    description:
+      'Guides and stories for parents from Divyataa, a pure Montessori school in Tirupur: choosing a school, Montessori at home and life in our classrooms.',
+    ogTitle: 'The Divyataa Blog · Parent Guides & Stories',
+  };
+}
+for (const post of posts) {
+  ROUTES[`/blog/${post.slug}`] = {
+    title: post.data.seoTitle || `${post.data.title} | Divyataa`,
+    description: post.data.description || '',
+    ogTitle: post.data.title,
+    ogImage: post.cover ? `${SITE_URL}${post.cover}` : undefined,
+    ogType: 'article',
+    lastmod: post.data.updated || post.data.date,
+    noindex: Boolean(post.data.draft),
+  };
+}
 
 export const NOT_FOUND = {
   title: 'Page not found | Divyataa International School',

@@ -2,10 +2,19 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { imagetools } from 'vite-imagetools'
+import blogMarkdown from './scripts/blog-markdown.js'
+
+// Draft blog posts appear on local builds and Vercel preview deployments, but
+// never on the live site (VERCEL_ENV=production).
+const showDrafts = process.env.VERCEL_ENV !== 'production'
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __SHOW_DRAFTS__: JSON.stringify(showDrafts),
+  },
   plugins: [
+    blogMarkdown({ showDrafts }),
     tailwindcss(),
     react(),
     // Every imported image is converted at build time:

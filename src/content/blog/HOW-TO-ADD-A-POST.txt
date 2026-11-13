@@ -1,0 +1,41 @@
+HOW TO ADD A BLOG POST TO DIVYATAA.IN
+
+1. Put the post's photos in src/assets/blog/ with descriptive names,
+   e.g. montessori-morning-work-cycle.jpg (lowercase, words joined by hyphens).
+
+2. Create a new file in this folder named after the web address you want:
+     choosing-a-montessori-school-tirupur.md
+   becomes www.divyataa.in/blog/choosing-a-montessori-school-tirupur
+
+3. Start the file with this header, then write the post below it:
+
+   ---
+   title: How to choose a Montessori school in Tirupur
+   description: One or two sentences (under 160 characters) for Google and link previews.
+   date: 2026-12-01
+   author: kavitha
+   cover: montessori-morning-work-cycle.jpg
+   coverAlt: What the cover photo shows, in plain words
+   draft: true
+   ---
+
+   author can be "kavitha" (Kavitha Sudakar, Principal) or "divyataa" (the school).
+   Optional: updated: 2026-12-15 (when a post is revised), seoTitle: a different
+   Google title if the post title is long.
+
+4. Writing marks:
+     ## Heading            ### Smaller heading
+     **bold**              [link text](/contact)
+     - bullet              1. numbered step
+     > quote
+     ![what the photo shows](photo-file-name.jpg "optional caption")
+
+5. Keep "draft: true" while reviewing: the post shows on preview links only.
+   Delete that line to publish. The blog list, footer link, Google title,
+   sitemap, llms.txt and article data for Google all update automatically.
+
+6. After it goes live: Search Console > URL inspection > paste the post's
+   address > Request indexing.
+
+The file sample-post.md is a preview-only example of the layout and can be
+deleted once real posts exist.

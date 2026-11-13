@@ -9,7 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const ssrDir = path.join(root, 'dist-ssr');
 
-const { render, ROUTES, NOT_FOUND, SITE_URL, OG_IMAGE } = await import(
+const { render, ROUTES, NOT_FOUND, SITE_URL, OG_IMAGE, posts } = await import(
   pathToFileURL(path.join(ssrDir, 'entry-server.js')).href
 );
 
@@ -32,8 +32,11 @@ function headTags(seo, routePath) {
       `<meta property="og:title" content="${escape(seo.ogTitle || seo.title)}">`,
       `<meta property="og:description" content="${escape(seo.ogDescription || seo.description)}">`,
       `<meta property="og:url" content="${url}">`,
-      `<meta property="og:image" content="${OG_IMAGE}">`
+      `<meta property="og:image" content="${seo.ogImage || OG_IMAGE}">`
     );
+    if (seo.ogType === 'article') {
+      tags.push('<meta property="og:type" content="article">');
+    }
   }
   return tags.join('\n    ');
 }
@@ -61,6 +64,7 @@ function page(routePath, seo) {
 
 for (const [routePath, seo] of Object.entries(ROUTES)) {
   const file = routePath === '/' ? 'index.html' : `${routePath.slice(1)}.html`;
+  fs.mkdirSync(path.dirname(path.join(dist, file)), { recursive: true });
   fs.writeFileSync(path.join(dist, file), page(routePath, seo));
   console.log(`prerendered ${routePath} -> dist/${file}`);
 }
@@ -68,5 +72,29 @@ for (const [routePath, seo] of Object.entries(ROUTES)) {
 // Vercel serves dist/404.html with a 404 status for unknown URLs.
 fs.writeFileSync(path.join(dist, '404.html'), page('/404', NOT_FOUND));
 console.log('prerendered 404 -> dist/404.html');
+
+// Sitemap from the same route list, so new pages and blog posts are never
+// forgotten. Draft posts (noindex) are left out.
+const sitemapEntries = Object.entries(ROUTES)
+  .filter(([, seo]) => !seo.noindex)
+  .map(([routePath, seo]) => {
+    const lastmod = seo.lastmod ? `<lastmod>${seo.lastmod}</lastmod>` : '';
+    return `  <url><loc>${SITE_URL}${routePath === '/' ? '/' : routePath}</loc>${lastmod}</url>`;
+  });
+fs.writeFileSync(
+  path.join(dist, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`
+);
+console.log(`sitemap.xml: ${sitemapEntries.length} URLs`);
+
+// List published blog posts in llms.txt for AI assistants.
+const published = posts.filter((post) => !post.data.draft);
+if (published.length) {
+  const llmsPath = path.join(dist, 'llms.txt');
+  const lines = published.map(
+    (post) => `- [${post.data.title}](${SITE_URL}/blog/${post.slug}): ${post.data.description || ''}`
+  );
+  fs.appendFileSync(llmsPath, `\n## Blog: parent guides and stories\n${lines.join('\n')}\n`);
+}
 
 fs.rmSync(ssrDir, { recursive: true, force: true });

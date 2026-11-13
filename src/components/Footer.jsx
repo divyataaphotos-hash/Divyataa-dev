@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LazyMap from './LazyMap';
+import { posts } from '../blog/posts';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,6 +41,11 @@ const Footer = () => {
             <Link to="/montessori-school-tirupur" className="block text-sm font-bold text-[#7208b3] hover:underline">
               Montessori school &amp; preschool in Tirupur →
             </Link>
+            {posts.length > 0 && (
+              <Link to="/blog" className="block text-sm font-bold text-[#7208b3] hover:underline">
+                Parent guides &amp; stories (blog) →
+              </Link>
+            )}
           </div>
         </div>
         

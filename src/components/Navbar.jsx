@@ -37,8 +37,9 @@ const Navbar = () => {
   const isCurriculumPage = location.pathname === '/curriculum';
   const isGalleryPage = location.pathname === '/gallery';
   const isMontessoriPage = location.pathname === '/montessori-school-tirupur';
+  const isBlogPage = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
 
-  const isInnerPage = isAboutPage || isContactPage || isExperiencePage || isCurriculumPage || isGalleryPage || isMontessoriPage;
+  const isInnerPage = isAboutPage || isContactPage || isExperiencePage || isCurriculumPage || isGalleryPage || isMontessoriPage || isBlogPage;
 
   return (
     <>
