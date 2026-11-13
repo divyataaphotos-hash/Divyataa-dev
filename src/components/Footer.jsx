@@ -131,6 +131,19 @@ const Footer = () => {
     &copy; {currentYear} Divyataa International School™ | SMR Pavalammal Educational Trust | All rights reserved.
   </p>
 
+  <div className="mt-2 text-white/70 text-[11px] md:text-xs leading-relaxed">
+    Our neighbour:{' '}
+    <a
+      href="https://www.sreelayam.in/"
+      target="_blank"
+      rel="noopener"
+      className="font-semibold text-white underline underline-offset-4 decoration-white/40 hover:decoration-white"
+    >
+      Sreelayam
+    </a>
+    {' '}&mdash; a 1960s heritage home for weddings and events in Tirupur
+  </div>
+
 </div>
 </footer>
   );
