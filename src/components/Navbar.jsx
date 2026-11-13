@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Phone, ArrowRight, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logo from '../assets/TM.png';
+import logo from '../assets/divyataa-international-school-logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="relative">
               <img 
                 src={logo} 
-                alt="Divyataa Logo" 
+                alt="Divyataa International School logo" 
                 className={`transition-all duration-300 ${(isScrolled || isInnerPage || isMobileMenuOpen) ? 'h-12 md:h-16' : 'h-24 md:h-40'} w-auto`} 
               />
               <span className={`absolute -right-1.5 top-0 md:-right-2.5 text-[8px] md:text-sm font-bold transition-all duration-300 ${
