@@ -151,7 +151,7 @@ const Curriculum = () => {
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <span className="text-purple-400 font-bold tracking-widest uppercase text-sm mb-6 block">Ages 3 to 6</span>
+              <span className="text-purple-400 font-bold tracking-widest uppercase text-sm mb-6 block">Ages 3 to 5</span>
               <h2 className="text-xl md:text-3xl font-gayathri mb-6 font-bold">Primary Montessori: Casa</h2>
               <h3 className="text-2xl font-light text-slate-400 mb-10 italic">Where independence begins</h3>
               <p className="text-lg text-slate-300 leading-relaxed mb-10 text-justify">
