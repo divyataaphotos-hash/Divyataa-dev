@@ -7,11 +7,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusHeroImg from '../assets/campus/divyataa-international-school-tirupur-building-front.webp';
+import campusHeroImg from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.webp';
+import readingCornerImg from '../assets/campus/classroom-reading-corner-bookshelf-tree-mural.webp';
 import buildingFrontImg from '../assets/campus/divyataa-international-school-tirupur-building-front.webp';
 import buildingTreesImg from '../assets/campus/divyataa-school-building-portico-trees.webp';
 import emblemImg from '../assets/campus/divyataa-lotus-emblem-school-pediment.webp';
-import classroomWideImg from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.webp';
+import classroomWideImg from '../assets/campus/montessori-classroom-materials-shelves-mural.webp';
 import classroomTreeImg from '../assets/campus/montessori-classroom-tree-mural-natural-light.webp';
 import materialsShelfImg from '../assets/campus/montessori-materials-shelf-leaf-mural.webp';
 import flamingoRoomImg from '../assets/campus/montessori-classroom-flamingo-mural.webp';
@@ -47,8 +48,8 @@ const Experience = () => {
        <div className="absolute inset-0">
          <img fetchPriority="high"
            src={campusHeroImg}
-           alt="The white pillared portico of the Divyataa International School building in Tirupur, with its lotus emblem"
-           className="w-full h-full object-cover object-[50%_15%]"
+           alt="A Divyataa Montessori classroom in Tirupur with low wooden shelves of materials beneath a mountain mural"
+           className="w-full h-full object-cover object-[50%_65%]"
          />
           {/* Dark Overlay */}
     <div className="absolute inset-0 bg-black/50" />
@@ -171,7 +172,7 @@ const Experience = () => {
             className="w-full lg:w-1/2 grid grid-cols-2 gap-4"
           >
             <div className="col-span-2 rounded-3xl overflow-hidden shadow-xl aspect-[16/9]">
-              <img loading="lazy" decoding="async" src={classroomWideImg} alt="A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural" className="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={classroomWideImg} alt="Low Montessori shelves of materials and globes in front of a painted mountain wall" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]">
               <img loading="lazy" decoding="async" src={eventsImg} alt="Two children exploring continents on a Montessori globe in a prepared classroom" className="w-full h-full object-cover" />
@@ -236,7 +237,7 @@ const Experience = () => {
             {[
               { src: buildingFrontImg, alt: 'Front of the Divyataa International School building in Tirupur, with its white pillared portico' },
               { src: buildingTreesImg, alt: 'The Divyataa school building and portico framed by trees, with the garden beds in front' },
-              { src: classroomWideImg, alt: 'A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural' },
+              { src: readingCornerImg, alt: 'A classroom reading corner with a low bookshelf, curtains and a painted tree' },
               { src: sandPlayImg, alt: 'The shaded sand play area at Divyataa with a slide and climbing frame' },
               { src: classroomTreeImg, alt: 'A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves' },
               { src: climbingWallImg, alt: 'A colourful climbing wall in the sand pit beside a shade tree' },
