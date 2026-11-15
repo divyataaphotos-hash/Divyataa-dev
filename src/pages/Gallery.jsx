@@ -42,6 +42,14 @@ import eventImg21 from '../Website/Gallery Page/Events & Festivals/families-line
 import campusImg1 from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg?gallery';
 import campusImg2 from '../assets/campus/divyataa-campus-portico-night-close.jpg?gallery';
 import campusImg3 from '../assets/campus/divyataa-campus-entrance-twilight.jpg?gallery';
+import campusDayImg1 from '../assets/campus/divyataa-campus-building-front-portico-day.jpg?gallery';
+import campusDayImg2 from '../assets/campus/divyataa-campus-building-side-view-day.jpg?gallery';
+import classroomImg1 from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.jpg?gallery';
+import classroomImg2 from '../assets/campus/montessori-classroom-materials-shelves-mural.jpg?gallery';
+import classroomImg3 from '../assets/campus/montessori-classroom-tree-mural-natural-light.jpg?gallery';
+import sandPlayImg from '../assets/campus/sand-play-area-slide-climbing-frame.jpg?gallery';
+import playRoomImg from '../assets/campus/indoor-play-room-tunnel-soft-blocks.jpg?gallery';
+import corridorImg from '../assets/campus/corridor-terracotta-jali-brick-wall.jpg?gallery';
 import eventImg22 from '../Website/Gallery Page/Annual Day/children-singing-together-stage-divyotsav-annual.jpg?gallery';
 import eventImg23 from '../Website/Gallery Page/Annual Day/smiling-boy-greeting-audience-folded-hands.jpg?gallery';
 import eventImg24 from '../Website/Gallery Page/Annual Day/child-holding-yoga-pose-annual-day.jpg?gallery';
@@ -145,6 +153,14 @@ const galleryItems = [
   { type: 'image', category: 'campus', src: campusImg1, featured: 13, title: "Our Campus", alt: "The Divyataa International School building in Tirupur at dusk" },
   { type: 'image', category: 'campus', src: campusImg2, title: "The Building at Night", alt: "The pillared portico of the Divyataa building lit up at night" },
   { type: 'image', category: 'campus', src: campusImg3, title: "Our Entrance", alt: "The Divyataa entrance at twilight with the school banners" },
+  { type: 'image', category: 'campus', src: campusDayImg1, title: "By Day", alt: "Front of the Divyataa International School building in Tirupur, with its white pillared portico" },
+  { type: 'image', category: 'campus', src: campusDayImg2, title: "The Whole Building", alt: "The two-storey Divyataa school building seen from the side, with the garden path" },
+  { type: 'image', category: 'campus', src: classroomImg1, title: "A Prepared Classroom", alt: "A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural" },
+  { type: 'image', category: 'campus', src: classroomImg2, title: "Within Reach", alt: "Low Montessori shelves of materials and globes in front of a painted mountain wall" },
+  { type: 'image', category: 'campus', src: classroomImg3, title: "Room to Work", alt: "A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves" },
+  { type: 'image', category: 'campus', src: sandPlayImg, title: "The Sand Pit", alt: "The shaded sand play area at Divyataa with a slide and climbing frame" },
+  { type: 'image', category: 'campus', src: playRoomImg, title: "The Play Room", alt: "The indoor play room with a play tunnel, soft blocks and foam floor mats" },
+  { type: 'image', category: 'campus', src: corridorImg, title: "Jali Corridor", alt: "A school corridor lined with a terracotta jali brick wall and shoe racks" },
   { type: 'image', category: 'campus', src: sportImg6, title: "Visiting the Building Site", alt: "Children visiting the construction site of their new school building" },
   { type: 'image', category: 'campus', src: sportImg7, featured: 30, title: "Watching the Builders", alt: "Children and a teacher talking with a builder at the new campus site" },
 

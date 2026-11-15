@@ -7,11 +7,15 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusImg from '../assets/campus/divyataa-campus-building-wide-dusk-view.jpg';
-import campusEntranceImg from '../assets/campus/divyataa-campus-entrance-twilight.jpg';
-import classroomImg from '../assets/placeholder-classroom-Db3PxBcM.webp';
+import campusImg from '../assets/campus/divyataa-campus-portico-night-close.jpg';
+import campusFrontDayImg from '../assets/campus/divyataa-campus-building-front-portico-day.jpg';
+import campusSideDayImg from '../assets/campus/divyataa-campus-building-side-view-day.jpg';
+import classroomWideImg from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.jpg';
+import classroomTreeImg from '../assets/campus/montessori-classroom-tree-mural-natural-light.jpg';
+import sandPlayImg from '../assets/campus/sand-play-area-slide-climbing-frame.jpg';
+import playRoomImg from '../assets/campus/indoor-play-room-tunnel-soft-blocks.jpg';
+import corridorImg from '../assets/campus/corridor-terracotta-jali-brick-wall.jpg';
 import outdoorImg from '../assets/happy-children-divyataa-montessori-tirupur.webp';
-import materialsImg from '../assets/placeholder-materials-D6uKM2bM.webp';
 import learningImg from '../assets/children-learning-geography-globe.webp';
 import silambamImg from '../Website/Gallery Page/Field trip/fire-rescue-safety-demonstration-students.jpg';
 import whyMontessoriImg from '../assets/silambam-practice-school-courtyard.webp';
@@ -49,7 +53,7 @@ const Experience = () => {
        <div className="absolute inset-0">
          <img fetchPriority="high"
            src={campusImg}
-           alt="The Divyataa International School building on Angeripalayam Main Road, Tirupur, at dusk"
+           alt="The pillared portico of the Divyataa International School building in Tirupur, lit up at night"
            className="w-full h-full object-cover"
          />
           {/* Dark Overlay */}
@@ -170,12 +174,15 @@ const Experience = () => {
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="lg:w-1/2 grid grid-cols-2 gap-4"
+            className="w-full lg:w-1/2 grid grid-cols-2 gap-4"
           >
+            <div className="col-span-2 rounded-3xl overflow-hidden shadow-xl aspect-[16/9]">
+              <img loading="lazy" decoding="async" src={classroomWideImg} alt="A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural" className="w-full h-full object-cover" />
+            </div>
             <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]">
               <img loading="lazy" decoding="async" src={eventsImg} alt="Two children exploring continents on a Montessori globe in a prepared classroom" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] mt-12">
+            <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]">
               <img loading="lazy" decoding="async" src={events2Img} alt="Two children working together on a floor activity in a calm Montessori classroom" className="w-full h-full object-cover" />
             </div>
           </motion.div>
@@ -211,11 +218,13 @@ const Experience = () => {
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="lg:w-1/2"
+            className="w-full lg:w-1/2 grid grid-cols-2 gap-4"
           >
-            <div className="rounded-[3rem] overflow-hidden shadow-2xl relative group">
-              <img loading="lazy" decoding="async" src={annualDayImg2} alt="Children watering plants in the Divyataa school garden" className="w-full h-auto object-cover" />
-              <div className="absolute inset-0 bg-purple-600/10 group-hover:bg-transparent transition-all duration-500" />
+            <div className="rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5]">
+              <img loading="lazy" decoding="async" src={annualDayImg2} alt="Children watering plants in the Divyataa school garden" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5]">
+              <img loading="lazy" decoding="async" src={sandPlayImg} alt="The shaded sand play area at Divyataa with a slide and climbing frame" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -231,7 +240,11 @@ const Experience = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { src: campusEntranceImg, alt: 'Entrance of the Divyataa International School building at twilight' },
+              { src: campusFrontDayImg, alt: 'Front of the Divyataa International School building in Tirupur, with its white pillared portico' },
+              { src: campusSideDayImg, alt: 'The two-storey Divyataa school building seen from the side, with the garden path' },
+              { src: classroomTreeImg, alt: 'A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves' },
+              { src: playRoomImg, pos: 'object-[50%_80%]', alt: 'The indoor play room with a play tunnel, soft blocks and foam floor mats' },
+              { src: corridorImg, alt: 'A school corridor lined with a terracotta jali brick wall and shoe racks' },
               { src: silambamImg, alt: 'Students learning fire and rescue safety from officers on a field trip' },
               { src: outdoorImg, alt: 'Happy Divyataa children in school uniform raising their hands' },
               { src: learningImg, alt: 'Children learning geography with a Montessori globe' },
@@ -253,7 +266,7 @@ const Experience = () => {
                   idx === 0 ? 'md:col-span-2 md:row-span-2 aspect-auto h-full' : ''
                 }`}
               >
-                <img loading="lazy" decoding="async" src={img.src} alt={img.alt} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                <img loading="lazy" decoding="async" src={img.src} alt={img.alt} className={`w-full h-full object-cover ${img.pos || ''} hover:scale-110 transition-transform duration-700`} />
               </motion.div>
             ))}
           </div>
