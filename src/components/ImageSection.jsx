@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import campusImg from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg';
+import campusImg from '../assets/campus/divyataa-international-school-tirupur-building-front.webp';
 import annualImg from '../Website/Gallery Page/Annual Day/children-butterfly-wings-performing-nature-dance.jpg';
 import classImg1 from '../Website/Gallery Page/Classsroom Life/montessori-guide-leading-circle-time-children.jpg';
 import eventImg1 from '../Website/Gallery Page/Events & Festivals/children-making-flower-pookolam-together-floor.jpg';
@@ -10,7 +10,7 @@ import eventImg from '../assets/girls-festive-traditional-dress-celebration.jpg'
 
 const ImageSection = () => {
   const images = [
-    { src: campusImg, alt: 'The Divyataa International School building in Tirupur at dusk' },
+    { src: campusImg, pos: 'object-[50%_25%]', alt: 'Front of the Divyataa International School building in Tirupur, with its white pillared portico' },
     { src: annualImg, alt: 'Children in butterfly wings performing a nature dance at the Divyataa annual day' },
     { src: classImg1, alt: 'A Montessori guide leading circle time with children at Divyataa, Tirupur' },
     { src: eventImg1, alt: 'Children making a flower pookolam together at a school celebration' },
@@ -40,7 +40,7 @@ const ImageSection = () => {
               key={current}
               src={images[current].src}
               alt={images[current].alt}
-              className="absolute inset-0 w-full h-full object-cover"
+              className={`absolute inset-0 w-full h-full object-cover ${images[current].pos || ''}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

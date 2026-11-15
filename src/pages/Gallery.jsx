@@ -39,17 +39,30 @@ import eventImg18 from '../Website/Gallery Page/Events & Festivals/children-trad
 import eventImg19 from '../Website/Gallery Page/Events & Festivals/grandparents-children-performing-pongal-puja-together.jpg?gallery';
 import eventImg20 from '../Website/Gallery Page/Events & Festivals/parents-children-taking-part-hoop-race.jpg?gallery';
 import eventImg21 from '../Website/Gallery Page/Events & Festivals/families-lined-track-sports-day-race.jpg?gallery';
-import campusImg1 from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg?gallery';
-import campusImg2 from '../assets/campus/divyataa-campus-portico-night-close.jpg?gallery';
-import campusImg3 from '../assets/campus/divyataa-campus-entrance-twilight.jpg?gallery';
-import campusDayImg1 from '../assets/campus/divyataa-campus-building-front-portico-day.jpg?gallery';
-import campusDayImg2 from '../assets/campus/divyataa-campus-building-side-view-day.jpg?gallery';
-import classroomImg1 from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.jpg?gallery';
-import classroomImg2 from '../assets/campus/montessori-classroom-materials-shelves-mural.jpg?gallery';
-import classroomImg3 from '../assets/campus/montessori-classroom-tree-mural-natural-light.jpg?gallery';
-import sandPlayImg from '../assets/campus/sand-play-area-slide-climbing-frame.jpg?gallery';
-import playRoomImg from '../assets/campus/indoor-play-room-tunnel-soft-blocks.jpg?gallery';
-import corridorImg from '../assets/campus/corridor-terracotta-jali-brick-wall.jpg?gallery';
+import campusPhoto1 from '../assets/campus/divyataa-international-school-tirupur-building-front.webp?gallery';
+import campusPhoto2 from '../assets/campus/divyataa-school-building-portico-trees.webp?gallery';
+import campusPhoto3 from '../assets/campus/divyataa-school-building-side-view-classroom-wing.webp?gallery';
+import campusPhoto4 from '../assets/campus/divyataa-school-pillared-portico-lotus-emblem.webp?gallery';
+import campusPhoto5 from '../assets/campus/divyataa-school-classroom-wing-garden-path.webp?gallery';
+import campusPhoto6 from '../assets/campus/divyataa-lotus-emblem-school-pediment.webp?gallery';
+import campusPhoto7 from '../assets/campus/divyataa-school-campus-grounds-tirupur.webp?gallery';
+import campusPhoto8 from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.webp?gallery';
+import campusPhoto9 from '../assets/campus/montessori-classroom-materials-shelves-mural.webp?gallery';
+import campusPhoto10 from '../assets/campus/montessori-classroom-tree-mural-natural-light.webp?gallery';
+import campusPhoto11 from '../assets/campus/montessori-classroom-low-shelves-large-windows.webp?gallery';
+import campusPhoto12 from '../assets/campus/montessori-materials-shelf-leaf-mural.webp?gallery';
+import campusPhoto13 from '../assets/campus/classroom-reading-corner-bookshelf-tree-mural.webp?gallery';
+import campusPhoto14 from '../assets/campus/montessori-classroom-aeroplane-mural-shelves.webp?gallery';
+import campusPhoto15 from '../assets/campus/montessori-classroom-flamingo-mural.webp?gallery';
+import campusPhoto16 from '../assets/campus/classroom-washrooms-tree-mural.webp?gallery';
+import campusPhoto17 from '../assets/campus/sand-play-area-slide-climbing-frame.webp?gallery';
+import campusPhoto18 from '../assets/campus/sand-pit-climbing-wall-shade-tree.webp?gallery';
+import campusPhoto19 from '../assets/campus/childrens-climbing-wall-sand-pit.webp?gallery';
+import campusPhoto20 from '../assets/campus/covered-outdoor-play-area-terracotta-jali.webp?gallery';
+import campusPhoto21 from '../assets/campus/indoor-play-room-tunnel-soft-blocks.webp?gallery';
+import campusPhoto22 from '../assets/campus/movement-corner-mini-trampoline-tree-mural.webp?gallery';
+import campusPhoto23 from '../assets/campus/school-corridor-natural-light.webp?gallery';
+import campusPhoto24 from '../assets/campus/corridor-terracotta-jali-brick-wall.webp?gallery';
 import eventImg22 from '../Website/Gallery Page/Annual Day/children-singing-together-stage-divyotsav-annual.jpg?gallery';
 import eventImg23 from '../Website/Gallery Page/Annual Day/smiling-boy-greeting-audience-folded-hands.jpg?gallery';
 import eventImg24 from '../Website/Gallery Page/Annual Day/child-holding-yoga-pose-annual-day.jpg?gallery';
@@ -150,17 +163,30 @@ const galleryItems = [
   { type: 'image', category: 'events', src: eventImg21, title: "Beyond the Horizon", alt: "Families lined up on the track for a sports day race" },
 
   // Campus
-  { type: 'image', category: 'campus', src: campusImg1, featured: 13, title: "Our Campus", alt: "The Divyataa International School building in Tirupur at dusk" },
-  { type: 'image', category: 'campus', src: campusImg2, title: "The Building at Night", alt: "The pillared portico of the Divyataa building lit up at night" },
-  { type: 'image', category: 'campus', src: campusImg3, title: "Our Entrance", alt: "The Divyataa entrance at twilight with the school banners" },
-  { type: 'image', category: 'campus', src: campusDayImg1, title: "By Day", alt: "Front of the Divyataa International School building in Tirupur, with its white pillared portico" },
-  { type: 'image', category: 'campus', src: campusDayImg2, title: "The Whole Building", alt: "The two-storey Divyataa school building seen from the side, with the garden path" },
-  { type: 'image', category: 'campus', src: classroomImg1, title: "A Prepared Classroom", alt: "A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural" },
-  { type: 'image', category: 'campus', src: classroomImg2, title: "Within Reach", alt: "Low Montessori shelves of materials and globes in front of a painted mountain wall" },
-  { type: 'image', category: 'campus', src: classroomImg3, title: "Room to Work", alt: "A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves" },
-  { type: 'image', category: 'campus', src: sandPlayImg, title: "The Sand Pit", alt: "The shaded sand play area at Divyataa with a slide and climbing frame" },
-  { type: 'image', category: 'campus', src: playRoomImg, title: "The Play Room", alt: "The indoor play room with a play tunnel, soft blocks and foam floor mats" },
-  { type: 'image', category: 'campus', src: corridorImg, title: "Jali Corridor", alt: "A school corridor lined with a terracotta jali brick wall and shoe racks" },
+  { type: 'image', category: 'campus', src: campusPhoto1, featured: 13, title: "Our School", alt: "Front of the Divyataa International School building in Tirupur, with its white pillared portico" },
+  { type: 'image', category: 'campus', src: campusPhoto2, title: "Among the Trees", alt: "The Divyataa school building and portico framed by trees, with the garden beds in front" },
+  { type: 'image', category: 'campus', src: campusPhoto3, title: "The Whole Building", alt: "The two-storey Divyataa school building seen from the side, with its classroom wing and garden path" },
+  { type: 'image', category: 'campus', src: campusPhoto4, title: "The Portico", alt: "The tall white pillars of the Divyataa portico beneath the lotus emblem" },
+  { type: 'image', category: 'campus', src: campusPhoto5, title: "The Classroom Wing", alt: "The classroom wing of the Divyataa building beside a planted garden path" },
+  { type: 'image', category: 'campus', src: campusPhoto6, title: "Our Lotus", alt: "The Divyataa lotus emblem on the pediment of the school building" },
+  { type: 'image', category: 'campus', src: campusPhoto7, title: "Open Grounds", alt: "The open grounds in front of the Divyataa International School building in Tirupur" },
+  { type: 'image', category: 'campus', src: campusPhoto8, title: "A Prepared Classroom", alt: "A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural" },
+  { type: 'image', category: 'campus', src: campusPhoto9, title: "Within Reach", alt: "Low Montessori shelves of materials and globes in front of a painted mountain wall" },
+  { type: 'image', category: 'campus', src: campusPhoto10, title: "Room to Work", alt: "A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves" },
+  { type: 'image', category: 'campus', src: campusPhoto11, title: "Light and Order", alt: "Low wooden Montessori shelves along a classroom wall under wide windows" },
+  { type: 'image', category: 'campus', src: campusPhoto12, title: "Materials in Sequence", alt: "Low shelves of wooden Montessori materials under a painted leaf mural" },
+  { type: 'image', category: 'campus', src: campusPhoto13, title: "The Reading Corner", alt: "A classroom reading corner with a low bookshelf, curtains and a painted tree" },
+  { type: 'image', category: 'campus', src: campusPhoto14, title: "Taking Flight", alt: "A Montessori classroom with an aeroplane mural above low shelves" },
+  { type: 'image', category: 'campus', src: campusPhoto15, title: "The Flamingo Room", alt: "A Montessori classroom with a flamingo mural between two windows" },
+  { type: 'image', category: 'campus', src: campusPhoto16, title: "Close at Hand", alt: "Washrooms opening off a classroom with painted trees and a low shelf" },
+  { type: 'image', category: 'campus', src: campusPhoto17, title: "The Sand Pit", alt: "The shaded sand play area at Divyataa with a slide and climbing frame" },
+  { type: 'image', category: 'campus', src: campusPhoto18, title: "Climb and Dig", alt: "A colourful climbing wall in the sand pit beside a shade tree" },
+  { type: 'image', category: 'campus', src: campusPhoto19, title: "The Climbing Wall", alt: "A close view of the red and purple climbing wall in the sand pit" },
+  { type: 'image', category: 'campus', src: campusPhoto20, title: "Shade to Play", alt: "The covered outdoor play area with a slide, sand and a terracotta jali wall" },
+  { type: 'image', category: 'campus', src: campusPhoto21, title: "The Play Room", alt: "The indoor play room with a play tunnel, soft blocks and foam floor mats" },
+  { type: 'image', category: 'campus', src: campusPhoto22, title: "Room to Move", alt: "A movement corner with a mini trampoline beside a painted tree" },
+  { type: 'image', category: 'campus', src: campusPhoto23, title: "The Long Corridor", alt: "A long, bright school corridor with classrooms on either side" },
+  { type: 'image', category: 'campus', src: campusPhoto24, title: "Jali Corridor", alt: "A school corridor lined with a terracotta jali brick wall and shoe racks" },
   { type: 'image', category: 'campus', src: sportImg6, title: "Visiting the Building Site", alt: "Children visiting the construction site of their new school building" },
   { type: 'image', category: 'campus', src: sportImg7, featured: 30, title: "Watching the Builders", alt: "Children and a teacher talking with a builder at the new campus site" },
 

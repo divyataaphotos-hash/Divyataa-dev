@@ -7,29 +7,23 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Assets
-import campusImg from '../assets/campus/divyataa-campus-portico-night-close.jpg';
-import campusFrontDayImg from '../assets/campus/divyataa-campus-building-front-portico-day.jpg';
-import campusSideDayImg from '../assets/campus/divyataa-campus-building-side-view-day.jpg';
-import classroomWideImg from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.jpg';
-import classroomTreeImg from '../assets/campus/montessori-classroom-tree-mural-natural-light.jpg';
-import sandPlayImg from '../assets/campus/sand-play-area-slide-climbing-frame.jpg';
-import playRoomImg from '../assets/campus/indoor-play-room-tunnel-soft-blocks.jpg';
-import corridorImg from '../assets/campus/corridor-terracotta-jali-brick-wall.jpg';
-import outdoorImg from '../assets/happy-children-divyataa-montessori-tirupur.webp';
-import learningImg from '../assets/children-learning-geography-globe.webp';
-import silambamImg from '../Website/Gallery Page/Field trip/fire-rescue-safety-demonstration-students.jpg';
-import whyMontessoriImg from '../assets/silambam-practice-school-courtyard.webp';
+import campusHeroImg from '../assets/campus/divyataa-international-school-tirupur-building-front.webp';
+import buildingFrontImg from '../assets/campus/divyataa-international-school-tirupur-building-front.webp';
+import buildingTreesImg from '../assets/campus/divyataa-school-building-portico-trees.webp';
+import emblemImg from '../assets/campus/divyataa-lotus-emblem-school-pediment.webp';
+import classroomWideImg from '../assets/campus/montessori-classroom-mountain-mural-low-shelves.webp';
+import classroomTreeImg from '../assets/campus/montessori-classroom-tree-mural-natural-light.webp';
+import materialsShelfImg from '../assets/campus/montessori-materials-shelf-leaf-mural.webp';
+import flamingoRoomImg from '../assets/campus/montessori-classroom-flamingo-mural.webp';
+import sandPlayImg from '../assets/campus/sand-play-area-slide-climbing-frame.webp';
+import climbingWallImg from '../assets/campus/sand-pit-climbing-wall-shade-tree.webp';
+import coveredPlayImg from '../assets/campus/covered-outdoor-play-area-terracotta-jali.webp';
+import playRoomImg from '../assets/campus/indoor-play-room-tunnel-soft-blocks.webp';
+import trampolineImg from '../assets/campus/movement-corner-mini-trampoline-tree-mural.webp';
+import corridorImg from '../assets/campus/corridor-terracotta-jali-brick-wall.webp';
 import eventsImg from '../assets/children-exploring-montessori-globe.jpg';
 import events2Img from '../assets/children-collaborating-montessori-classroom.jpg';
-import annualDayImg from '../assets/girls-festive-traditional-dress-celebration.jpg';
 import annualDayImg2 from '../Website/Gallery Page/Extracurricular/children-watering-plants-school-garden.jpg';
-import gal1 from '../assets/gallery/annual-day-children-singing-stage.jpg';
-import gal2 from '../assets/karate-championship-trophies-divyataa.jpg';
-import gal3 from '../assets/gallery/graduation-ceremony-divyotsav-annual-day.jpg';
-import eventImg from '../Website/Gallery Page/Events & Festivals/children-traditional-clothes-celebrating-pongal-sugarcane.jpg';
-import annualImg from '../Website/Gallery Page/Annual Day/dancers-performing-front-starry-night-backdrop.jpg';
-import fieldImg from '../Website/Gallery Page/Field trip/child-crossing-rope-bridge-outdoor-play.jpg';
-import extcurImg from '../Website/Gallery Page/Extracurricular/children-visiting-construction-site-school-building.jpg';
 import readyImg from '../Website/Gallery Page/Extracurricular/students-holding-yellow-karate-belts-senseis.jpg';
 import LazyMap from '../components/LazyMap';
 const fadeUp = {
@@ -52,9 +46,9 @@ const Experience = () => {
        {/* Background Image */}
        <div className="absolute inset-0">
          <img fetchPriority="high"
-           src={campusImg}
-           alt="The pillared portico of the Divyataa International School building in Tirupur, lit up at night"
-           className="w-full h-full object-cover"
+           src={campusHeroImg}
+           alt="The white pillared portico of the Divyataa International School building in Tirupur, with its lotus emblem"
+           className="w-full h-full object-cover object-[50%_15%]"
          />
           {/* Dark Overlay */}
     <div className="absolute inset-0 bg-black/50" />
@@ -235,35 +229,31 @@ const Experience = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-xl md:text-3xl font-serif text-slate-900 font-bold">Campus Gallery</h2>
-            <p className="text-slate-500">A glimpse into our prepared environments and vibrant spaces</p>
+            <p className="text-slate-500">Our classrooms, play areas and building on Angeripalayam Main Road, Tirupur</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { src: campusFrontDayImg, alt: 'Front of the Divyataa International School building in Tirupur, with its white pillared portico' },
-              { src: campusSideDayImg, alt: 'The two-storey Divyataa school building seen from the side, with the garden path' },
+              { src: buildingFrontImg, alt: 'Front of the Divyataa International School building in Tirupur, with its white pillared portico' },
+              { src: buildingTreesImg, alt: 'The Divyataa school building and portico framed by trees, with the garden beds in front' },
+              { src: classroomWideImg, alt: 'A Divyataa Montessori classroom with low wooden shelves of materials beneath a mountain mural' },
+              { src: sandPlayImg, alt: 'The shaded sand play area at Divyataa with a slide and climbing frame' },
               { src: classroomTreeImg, alt: 'A bright Divyataa classroom with a tree mural, large windows and low Montessori shelves' },
+              { src: climbingWallImg, alt: 'A colourful climbing wall in the sand pit beside a shade tree' },
               { src: playRoomImg, pos: 'object-[50%_80%]', alt: 'The indoor play room with a play tunnel, soft blocks and foam floor mats' },
               { src: corridorImg, alt: 'A school corridor lined with a terracotta jali brick wall and shoe racks' },
-              { src: silambamImg, alt: 'Students learning fire and rescue safety from officers on a field trip' },
-              { src: outdoorImg, alt: 'Happy Divyataa children in school uniform raising their hands' },
-              { src: learningImg, alt: 'Children learning geography with a Montessori globe' },
-              { src: annualDayImg, alt: 'Girls in traditional dress at a school festival celebration' },
-              { src: gal1, alt: 'Children singing on stage at the Divyotsav annual day' },
-              { src: gal2, alt: 'Karate students with championship trophies' },
-              { src: gal3, alt: 'Graduating class on stage at the Divyotsav annual day' },
-              { src: whyMontessoriImg, alt: 'Children practising silambam in the school courtyard' },
-              { src: eventImg, alt: 'Children celebrating Pongal with sugarcane at school' },
-              { src: annualImg, alt: 'Dancers performing at the Divyataa annual day' },
-              { src: fieldImg, alt: 'A child crossing a rope bridge during outdoor play' },
-              { src: extcurImg, alt: 'Children visiting the construction site of their new school building' },
+              { src: materialsShelfImg, alt: 'Low shelves of wooden Montessori materials under a painted leaf mural' },
+              { src: trampolineImg, pos: 'object-[50%_75%]', alt: 'A movement corner with a mini trampoline beside a painted tree' },
+              { src: flamingoRoomImg, alt: 'A Montessori classroom with a flamingo mural between two windows' },
+              { src: coveredPlayImg, alt: 'The covered outdoor play area with a slide, sand and a terracotta jali wall' },
+              { src: emblemImg, alt: 'The Divyataa lotus emblem on the pediment of the school building' },
             ].map((img, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className={`rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 aspect-square ${
-                  idx === 0 ? 'md:col-span-2 md:row-span-2 aspect-auto h-full' : ''
+                className={`rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ${
+                  idx === 0 ? 'col-span-2 aspect-[16/10] md:aspect-auto md:row-span-2 md:h-full' : 'aspect-square'
                 }`}
               >
                 <img loading="lazy" decoding="async" src={img.src} alt={img.alt} className={`w-full h-full object-cover ${img.pos || ''} hover:scale-110 transition-transform duration-700`} />
