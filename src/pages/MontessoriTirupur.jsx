@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Clock, Phone } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import heroImg from '../assets/campus/divyataa-campus-building-dusk-front-view.jpg';
+import heroImg from '../assets/campus/divyataa-school-building-side-view-classroom-wing.webp';
 import casaImg from '../assets/montessori-casa-one-on-one-lesson.jpg';
 import elementaryImg from '../assets/montessori-guide-circle-time.jpg';
 import globeImg from '../assets/children-exploring-montessori-globe.jpg';
@@ -95,7 +95,7 @@ const MontessoriTirupur = () => {
         <img
           fetchPriority="high"
           src={heroImg}
-          alt="The Divyataa International School building in Tirupur at dusk"
+          alt="The two-storey Divyataa International School building in Tirupur, with its classroom wing and garden path"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/55" />
